@@ -1,0 +1,2297 @@
+:root {
+  /* Theme Colors */
+  --crtg-primary: #2A2F4D;
+  --crtg-secondary: #5F6CAF;
+  --crtg-accent: #FF6B6B;
+  --crtg-success: #4CAF50;
+  --crtg-warning: #FFC107;
+  --crtg-danger: #F44336;
+  --crtg-background: #0A0A0A;
+  --crtg-surface: #1A1A1A;
+  --crtg-text-primary: #FFFFFF;
+  --crtg-text-secondary: #A0A0A0;
+  
+  /* Sizing */
+  --crtg-size-base: 1em;
+  --crtg-size-multiplier: 0.25;
+}
+
+[data-theme="light"] {
+  --crtg-background: #FFFFFF;
+  --crtg-surface: #F8F9FF;
+  --crtg-text-primary: #0A0A0A;
+  --crtg-text-secondary: #4A4A4A;
+}
+
+.crtg {
+  display: inline-flex;
+  position: relative;
+  width: var(--crtg-size-base);
+  height: var(--crtg-size-base);
+  min-width: 1em;
+  min-height: 1em;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+}
+
+/* Íconos individuales */
+.crtg-accessory {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/accessory.svg');
+}
+.crtg-activity {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/activity.svg');
+}
+.crtg-adjustments-horizontal-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/adjustments-horizontal-2.svg');
+}
+.crtg-adjustments-horizontal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/adjustments-horizontal.svg');
+}
+.crtg-adjustments-vertical-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/adjustments-vertical-2.svg');
+}
+.crtg-adjustments-vertical {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/adjustments-vertical.svg');
+}
+.crtg-airbnb {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/airbnb.svg');
+}
+.crtg-airplay {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/airplay.svg');
+}
+.crtg-alarm-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alarm-minus.svg');
+}
+.crtg-alarm-on {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alarm-on.svg');
+}
+.crtg-alarm-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alarm-plus.svg');
+}
+.crtg-alarm {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alarm.svg');
+}
+.crtg-alert-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alert-circle.svg');
+}
+.crtg-alert-octagon {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alert-octagon.svg');
+}
+.crtg-alert-triangle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/alert-triangle.svg');
+}
+.crtg-align-bottom {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/align-bottom.svg');
+}
+.crtg-align-center {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/align-center.svg');
+}
+.crtg-align-justify {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/align-justify.svg');
+}
+.crtg-align-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/align-left.svg');
+}
+.crtg-align-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/align-right.svg');
+}
+.crtg-align-top {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/align-top.svg');
+}
+.crtg-anchor {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/anchor.svg');
+}
+.crtg-android {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/android.svg');
+}
+.crtg-aperture {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/aperture.svg');
+}
+.crtg-archive {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/archive.svg');
+}
+.crtg-arrow-bar-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-bar-left.svg');
+}
+.crtg-arrow-down-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-circle.svg');
+}
+.crtg-arrow-down-left-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-left-circle.svg');
+}
+.crtg-arrow-down-left-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-left-square.svg');
+}
+.crtg-arrow-down-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-left.svg');
+}
+.crtg-arrow-down-right-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-right-circle.svg');
+}
+.crtg-arrow-down-right-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-right-square.svg');
+}
+.crtg-arrow-down-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-right.svg');
+}
+.crtg-arrow-down-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down-square.svg');
+}
+.crtg-arrow-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-down.svg');
+}
+.crtg-arrow-left-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-left-circle.svg');
+}
+.crtg-arrow-left-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-left-square.svg');
+}
+.crtg-arrow-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-left.svg');
+}
+.crtg-arrow-right-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-right-circle.svg');
+}
+.crtg-arrow-right-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-right-square.svg');
+}
+.crtg-arrow-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-right.svg');
+}
+.crtg-arrow-up-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-circle.svg');
+}
+.crtg-arrow-up-left-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-left-circle.svg');
+}
+.crtg-arrow-up-left-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-left-square.svg');
+}
+.crtg-arrow-up-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-left.svg');
+}
+.crtg-arrow-up-right-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-right-circle.svg');
+}
+.crtg-arrow-up-right-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-right-square.svg');
+}
+.crtg-arrow-up-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up-square.svg');
+}
+.crtg-arrow-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrow-up.svg');
+}
+.crtg-arrows-join {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrows-join.svg');
+}
+.crtg-arrows-join2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrows-join2.svg');
+}
+.crtg-arrows-mazimize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrows-mazimize.svg');
+}
+.crtg-arrows-minimize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrows-minimize.svg');
+}
+.crtg-arrows-split {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrows-split.svg');
+}
+.crtg-arrows-split2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/arrows-split2.svg');
+}
+.crtg-artist {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/artist.svg');
+}
+.crtg-asana {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/asana.svg');
+}
+.crtg-at-sign {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/at-sign.svg');
+}
+.crtg-award-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/award-2.svg');
+}
+.crtg-award {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/award.svg');
+}
+.crtg-bank-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bank-2.svg');
+}
+.crtg-bank {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bank.svg');
+}
+.crtg-bar-chart-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bar-chart-2.svg');
+}
+.crtg-bar-chart {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bar-chart.svg');
+}
+.crtg-battery-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/battery-2.svg');
+}
+.crtg-battery-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/battery-3.svg');
+}
+.crtg-battery-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/battery-4.svg');
+}
+.crtg-battery-charging {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/battery-charging.svg');
+}
+.crtg-battery {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/battery.svg');
+}
+.crtg-bell-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bell-2.svg');
+}
+.crtg-bell-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bell-3.svg');
+}
+.crtg-bell-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bell-off.svg');
+}
+.crtg-bell {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bell.svg');
+}
+.crtg-block {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/block.svg');
+}
+.crtg-bluetooth-connected {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bluetooth-connected.svg');
+}
+.crtg-bluetooth-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bluetooth-off.svg');
+}
+.crtg-bluetooth {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bluetooth.svg');
+}
+.crtg-bold {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bold.svg');
+}
+.crtg-book-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/book-2.svg');
+}
+.crtg-book-open {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/book-open.svg');
+}
+.crtg-book {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/book.svg');
+}
+.crtg-bookmark-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bookmark-minus.svg');
+}
+.crtg-bookmark-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bookmark-plus.svg');
+}
+.crtg-bookmark {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bookmark.svg');
+}
+.crtg-bootstrap {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bootstrap.svg');
+}
+.crtg-border-bottom {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-bottom.svg');
+}
+.crtg-border-clear {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-clear.svg');
+}
+.crtg-border-horizontal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-horizontal.svg');
+}
+.crtg-border-inner {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-inner.svg');
+}
+.crtg-border-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-left.svg');
+}
+.crtg-border-outer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-outer.svg');
+}
+.crtg-border-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-right.svg');
+}
+.crtg-border-top {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-top.svg');
+}
+.crtg-border-vertical {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/border-vertical.svg');
+}
+.crtg-bottom-drawer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bottom-drawer.svg');
+}
+.crtg-bottom-navigation {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bottom-navigation.svg');
+}
+.crtg-box {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/box.svg');
+}
+.crtg-braces-dots {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/braces-dots.svg');
+}
+.crtg-braces-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/braces-minus.svg');
+}
+.crtg-braces-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/braces-plus.svg');
+}
+.crtg-braces-x {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/braces-x.svg');
+}
+.crtg-braces {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/braces.svg');
+}
+.crtg-brackets-contain {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/brackets-contain.svg');
+}
+.crtg-brackets {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/brackets.svg');
+}
+.crtg-briefcase-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/briefcase-1.svg');
+}
+.crtg-briefcase-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/briefcase-2.svg');
+}
+.crtg-briefcase-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/briefcase-3.svg');
+}
+.crtg-briefcase-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/briefcase-4.svg');
+}
+.crtg-brush-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/brush-2.svg');
+}
+.crtg-brush-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/brush-3.svg');
+}
+.crtg-brush-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/brush-4.svg');
+}
+.crtg-brush {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/brush.svg');
+}
+.crtg-bug-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bug-2.svg');
+}
+.crtg-bug {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bug.svg');
+}
+.crtg-building-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/building-2.svg');
+}
+.crtg-building-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/building-3.svg');
+}
+.crtg-building-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/building-4.svg');
+}
+.crtg-building {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/building.svg');
+}
+.crtg-bulb {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/bulb.svg');
+}
+.crtg-calculator {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calculator.svg');
+}
+.crtg-calendar-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-2.svg');
+}
+.crtg-calendar-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-check.svg');
+}
+.crtg-calendar-event-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-event-1.svg');
+}
+.crtg-calendar-event-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-event-2.svg');
+}
+.crtg-calendar-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-minus.svg');
+}
+.crtg-calendar-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-plus.svg');
+}
+.crtg-calendar-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-search.svg');
+}
+.crtg-calendar-time {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-time.svg');
+}
+.crtg-calendar-view-day {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar-view-day.svg');
+}
+.crtg-calendar {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/calendar.svg');
+}
+.crtg-camera-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera-ai.svg');
+}
+.crtg-camera-check-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera-check-2.svg');
+}
+.crtg-camera-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera-check.svg');
+}
+.crtg-camera-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera-minus.svg');
+}
+.crtg-camera-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera-off.svg');
+}
+.crtg-camera-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera-plus.svg');
+}
+.crtg-camera {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/camera.svg');
+}
+.crtg-car-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/car-2.svg');
+}
+.crtg-car {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/car.svg');
+}
+.crtg-cash1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cash1.svg');
+}
+.crtg-cash2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cash2.svg');
+}
+.crtg-cast {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cast.svg');
+}
+.crtg-chat-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-1.svg');
+}
+.crtg-chat-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-2.svg');
+}
+.crtg-chat-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-3.svg');
+}
+.crtg-chat-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-4.svg');
+}
+.crtg-chat-check-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-check-2.svg');
+}
+.crtg-chat-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-check.svg');
+}
+.crtg-chat-delete {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-delete.svg');
+}
+.crtg-chat-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-down.svg');
+}
+.crtg-chat-forward {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-forward.svg');
+}
+.crtg-chat-history {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-history.svg');
+}
+.crtg-chat-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-minus.svg');
+}
+.crtg-chat-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-plus.svg');
+}
+.crtg-chat-report {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-report.svg');
+}
+.crtg-chat-smile-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-smile-1.svg');
+}
+.crtg-chat-smile-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-smile-2.svg');
+}
+.crtg-chat-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chat-up.svg');
+}
+.crtg-check-circle-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/check-circle-2.svg');
+}
+.crtg-check-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/check-circle.svg');
+}
+.crtg-check-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/check-square.svg');
+}
+.crtg-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/check.svg');
+}
+.crtg-chevron-down-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-down-circle.svg');
+}
+.crtg-chevron-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-down.svg');
+}
+.crtg-chevron-left-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-left-circle.svg');
+}
+.crtg-chevron-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-left.svg');
+}
+.crtg-chevron-right-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-right-circle.svg');
+}
+.crtg-chevron-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-right.svg');
+}
+.crtg-chevron-up-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-up-circle.svg');
+}
+.crtg-chevron-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevron-up.svg');
+}
+.crtg-chevrons-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevrons-down.svg');
+}
+.crtg-chevrons-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevrons-left.svg');
+}
+.crtg-chevrons-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevrons-right.svg');
+}
+.crtg-chevrons-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chevrons-up.svg');
+}
+.crtg-chrome {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/chrome.svg');
+}
+.crtg-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/circle.svg');
+}
+.crtg-clipboard-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clipboard-check.svg');
+}
+.crtg-clipboard-delete {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clipboard-delete.svg');
+}
+.crtg-clipboard-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clipboard-plus.svg');
+}
+.crtg-clipboard-text {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clipboard-text.svg');
+}
+.crtg-clipboard-typography {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clipboard-typography.svg');
+}
+.crtg-clipboard {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clipboard.svg');
+}
+.crtg-clock-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-check.svg');
+}
+.crtg-clock-edit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-edit.svg');
+}
+.crtg-clock-hour-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-1.svg');
+}
+.crtg-clock-hour-10 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-10.svg');
+}
+.crtg-clock-hour-11 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-11.svg');
+}
+.crtg-clock-hour-12 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-12.svg');
+}
+.crtg-clock-hour-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-2.svg');
+}
+.crtg-clock-hour-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-3.svg');
+}
+.crtg-clock-hour-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-4.svg');
+}
+.crtg-clock-hour-5 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-5.svg');
+}
+.crtg-clock-hour-6 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-6.svg');
+}
+.crtg-clock-hour-7 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-7.svg');
+}
+.crtg-clock-hour-8 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-8.svg');
+}
+.crtg-clock-hour-9 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-hour-9.svg');
+}
+.crtg-clock-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-minus.svg');
+}
+.crtg-clock-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-plus.svg');
+}
+.crtg-clock-snooze {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/clock-snooze.svg');
+}
+.crtg-close-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/close-circle.svg');
+}
+.crtg-close-octagon {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/close-octagon.svg');
+}
+.crtg-close-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/close-square.svg');
+}
+.crtg-close {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/close.svg');
+}
+.crtg-cloud-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-2.svg');
+}
+.crtg-cloud-fog-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-fog-2.svg');
+}
+.crtg-cloud-fog {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-fog.svg');
+}
+.crtg-cloud-lightning-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-lightning-2.svg');
+}
+.crtg-cloud-lightning {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-lightning.svg');
+}
+.crtg-cloud-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-off.svg');
+}
+.crtg-cloud-rain-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-rain-2.svg');
+}
+.crtg-cloud-rain-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-rain-3.svg');
+}
+.crtg-cloud-rain-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-rain-4.svg');
+}
+.crtg-cloud-rain {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-rain.svg');
+}
+.crtg-cloud-snow-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-snow-2.svg');
+}
+.crtg-cloud-snow {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud-snow.svg');
+}
+.crtg-cloud {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cloud.svg');
+}
+.crtg-code-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/code-2.svg');
+}
+.crtg-code-box-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/code-box-2.svg');
+}
+.crtg-code-box {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/code-box.svg');
+}
+.crtg-code-circle-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/code-circle-2.svg');
+}
+.crtg-code-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/code-circle.svg');
+}
+.crtg-code {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/code.svg');
+}
+.crtg-codesandbox {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/codesandbox.svg');
+}
+.crtg-coffee {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/coffee.svg');
+}
+.crtg-coin-hand {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/coin-hand.svg');
+}
+.crtg-coin {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/coin.svg');
+}
+.crtg-coins1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/coins1.svg');
+}
+.crtg-coins2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/coins2.svg');
+}
+.crtg-color-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/color-2.svg');
+}
+.crtg-color {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/color.svg');
+}
+.crtg-colordroper {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/colordroper.svg');
+}
+.crtg-columns {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/columns.svg');
+}
+.crtg-command {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/command.svg');
+}
+.crtg-community-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/community-2.svg');
+}
+.crtg-community {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/community.svg');
+}
+.crtg-compass-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/compass-2.svg');
+}
+.crtg-compass-navigation {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/compass-navigation.svg');
+}
+.crtg-compass {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/compass.svg');
+}
+.crtg-copy-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/copy-2.svg');
+}
+.crtg-copy {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/copy.svg');
+}
+.crtg-copyright {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/copyright.svg');
+}
+.crtg-corner-down-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/corner-down-left.svg');
+}
+.crtg-corner-left-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/corner-left-up.svg');
+}
+.crtg-corner-right-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/corner-right-down.svg');
+}
+.crtg-corner-up-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/corner-up-right.svg');
+}
+.crtg-cpu {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/cpu.svg');
+}
+.crtg-credit-card-add {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/credit-card-add.svg');
+}
+.crtg-credit-card-edit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/credit-card-edit.svg');
+}
+.crtg-credit-card-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/credit-card-minus.svg');
+}
+.crtg-credit-card1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/credit-card1.svg');
+}
+.crtg-credit-card2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/credit-card2.svg');
+}
+.crtg-crop {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/crop.svg');
+}
+.crtg-crosshair {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/crosshair.svg');
+}
+.crtg-currency-bitcoin-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-bitcoin-circle.svg');
+}
+.crtg-currency-bitcoin {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-bitcoin.svg');
+}
+.crtg-currency-dollar-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-dollar-circle.svg');
+}
+.crtg-currency-dollar1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-dollar1.svg');
+}
+.crtg-currency-dollar2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-dollar2.svg');
+}
+.crtg-currency-ethereum-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-ethereum-circle.svg');
+}
+.crtg-currency-ethereum {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-ethereum.svg');
+}
+.crtg-currency-euro-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-euro-circle.svg');
+}
+.crtg-currency-euro {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-euro.svg');
+}
+.crtg-currency-franc-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-franc-circle.svg');
+}
+.crtg-currency-franc {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-franc.svg');
+}
+.crtg-currency-pound-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-pound-circle.svg');
+}
+.crtg-currency-pound {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-pound.svg');
+}
+.crtg-currency-ruble-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-ruble-circle.svg');
+}
+.crtg-currency-ruble {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-ruble.svg');
+}
+.crtg-currency-rupee-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-rupee-circle.svg');
+}
+.crtg-currency-rupee {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-rupee.svg');
+}
+.crtg-currency-yen-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-yen-circle.svg');
+}
+.crtg-currency-yen {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/currency-yen.svg');
+}
+.crtg-dashboard-customize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/dashboard-customize.svg');
+}
+.crtg-dashboard {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/dashboard.svg');
+}
+.crtg-data-table {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/data-table.svg');
+}
+.crtg-database {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/database.svg');
+}
+.crtg-date-range {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/date-range.svg');
+}
+.crtg-deezer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/deezer.svg');
+}
+.crtg-delete {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/delete.svg');
+}
+.crtg-diagnosis {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/diagnosis.svg');
+}
+.crtg-direction {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/direction.svg');
+}
+.crtg-disc-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/disc-2.svg');
+}
+.crtg-disc {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/disc.svg');
+}
+.crtg-discount-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/discount-check.svg');
+}
+.crtg-discount {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/discount.svg');
+}
+.crtg-discount2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/discount2.svg');
+}
+.crtg-distance {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/distance.svg');
+}
+.crtg-divide {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/divide.svg');
+}
+.crtg-doc-to-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/doc-to-left.svg');
+}
+.crtg-doc-to-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/doc-to-right.svg');
+}
+.crtg-download-cloud {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/download-cloud.svg');
+}
+.crtg-download {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/download.svg');
+}
+.crtg-droplet-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/droplet-2.svg');
+}
+.crtg-droplet-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/droplet-minus.svg');
+}
+.crtg-droplet-percent {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/droplet-percent.svg');
+}
+.crtg-droplet-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/droplet-plus.svg');
+}
+.crtg-droplet {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/droplet.svg');
+}
+.crtg-earbuds-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/earbuds-2.svg');
+}
+.crtg-earbuds {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/earbuds.svg');
+}
+.crtg-edit-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/edit-2.svg');
+}
+.crtg-edit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/edit.svg');
+}
+.crtg-eraser {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/eraser.svg');
+}
+.crtg-event-note {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/event-note.svg');
+}
+.crtg-evernote {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/evernote.svg');
+}
+.crtg-external-link {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/external-link.svg');
+}
+.crtg-eye-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/eye-off.svg');
+}
+.crtg-eye {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/eye.svg');
+}
+.crtg-facebook {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/facebook.svg');
+}
+.crtg-factory {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/factory.svg');
+}
+.crtg-fast-forward {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/fast-forward.svg');
+}
+.crtg-figma {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/figma.svg');
+}
+.crtg-file-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-ai.svg');
+}
+.crtg-file-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-check.svg');
+}
+.crtg-file-code {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-code.svg');
+}
+.crtg-file-copy-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-copy-2.svg');
+}
+.crtg-file-copy {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-copy.svg');
+}
+.crtg-file-delete-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-delete-2.svg');
+}
+.crtg-file-delete {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-delete.svg');
+}
+.crtg-file-download {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-download.svg');
+}
+.crtg-file-edit-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-edit-2.svg');
+}
+.crtg-file-edit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-edit.svg');
+}
+.crtg-file-excel {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-excel.svg');
+}
+.crtg-file-history {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-history.svg');
+}
+.crtg-file-list-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-list-2.svg');
+}
+.crtg-file-list {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-list.svg');
+}
+.crtg-file-lock-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-lock-2.svg');
+}
+.crtg-file-lock {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-lock.svg');
+}
+.crtg-file-minus-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-minus-2.svg');
+}
+.crtg-file-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-minus.svg');
+}
+.crtg-file-pdf {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-pdf.svg');
+}
+.crtg-file-plus-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-plus-2.svg');
+}
+.crtg-file-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-plus.svg');
+}
+.crtg-file-ppt {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-ppt.svg');
+}
+.crtg-file-search-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-search-2.svg');
+}
+.crtg-file-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-search.svg');
+}
+.crtg-file-shield-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-shield-2.svg');
+}
+.crtg-file-shield {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-shield.svg');
+}
+.crtg-file-text {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-text.svg');
+}
+.crtg-file-transfer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-transfer.svg');
+}
+.crtg-file-upload {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-upload.svg');
+}
+.crtg-file-word {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file-word.svg');
+}
+.crtg-file {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/file.svg');
+}
+.crtg-film-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/film-2.svg');
+}
+.crtg-film {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/film.svg');
+}
+.crtg-filter {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/filter.svg');
+}
+.crtg-fingerprint {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/fingerprint.svg');
+}
+.crtg-flag-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/flag-2.svg');
+}
+.crtg-flag {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/flag.svg');
+}
+.crtg-flow {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/flow.svg');
+}
+.crtg-folder-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-2.svg');
+}
+.crtg-folder-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-ai.svg');
+}
+.crtg-folder-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-check.svg');
+}
+.crtg-folder-copy {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-copy.svg');
+}
+.crtg-folder-download {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-download.svg');
+}
+.crtg-folder-lock-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-lock-2.svg');
+}
+.crtg-folder-lock {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-lock.svg');
+}
+.crtg-folder-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-minus.svg');
+}
+.crtg-folder-open {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-open.svg');
+}
+.crtg-folder-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-plus.svg');
+}
+.crtg-folder-shield {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-shield.svg');
+}
+.crtg-folder-transfer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-transfer.svg');
+}
+.crtg-folder-upload {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-upload.svg');
+}
+.crtg-folder-zip {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder-zip.svg');
+}
+.crtg-folder {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/folder.svg');
+}
+.crtg-format-image-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/format-image-left.svg');
+}
+.crtg-format-image-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/format-image-right.svg');
+}
+.crtg-forms {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/forms.svg');
+}
+.crtg-framer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/framer.svg');
+}
+.crtg-frown {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/frown.svg');
+}
+.crtg-gaming-remote {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gaming-remote.svg');
+}
+.crtg-gender-female {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gender-female.svg');
+}
+.crtg-gender-male {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gender-male.svg');
+}
+.crtg-gift-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gift-2.svg');
+}
+.crtg-gift-card {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gift-card.svg');
+}
+.crtg-gift {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gift.svg');
+}
+.crtg-git-branch {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/git-branch.svg');
+}
+.crtg-git-commit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/git-commit.svg');
+}
+.crtg-git-merge {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/git-merge.svg');
+}
+.crtg-git-pull-request {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/git-pull-request.svg');
+}
+.crtg-github {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/github.svg');
+}
+.crtg-gitlab {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/gitlab.svg');
+}
+.crtg-globe {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/globe.svg');
+}
+.crtg-grid-on {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/grid-on.svg');
+}
+.crtg-grid {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/grid.svg');
+}
+.crtg-half-star {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/half-star.svg');
+}
+.crtg-hard-drive {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hard-drive.svg');
+}
+.crtg-hash {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hash.svg');
+}
+.crtg-headphones {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/headphones.svg');
+}
+.crtg-headset {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/headset.svg');
+}
+.crtg-heart-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/heart-ai.svg');
+}
+.crtg-heart {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/heart.svg');
+}
+.crtg-help-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/help-circle.svg');
+}
+.crtg-hexagon {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hexagon.svg');
+}
+.crtg-history {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/history.svg');
+}
+.crtg-hom-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hom-3.svg');
+}
+.crtg-home-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-2.svg');
+}
+.crtg-home-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-4.svg');
+}
+.crtg-home-eco {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-eco.svg');
+}
+.crtg-home-heart {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-heart.svg');
+}
+.crtg-home-location {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-location.svg');
+}
+.crtg-home-lock {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-lock.svg');
+}
+.crtg-home-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-search.svg');
+}
+.crtg-home-setting {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-setting.svg');
+}
+.crtg-home-shield {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-shield.svg');
+}
+.crtg-home-smile {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-smile.svg');
+}
+.crtg-home-user {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home-user.svg');
+}
+.crtg-home {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/home.svg');
+}
+.crtg-hospital {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hospital.svg');
+}
+.crtg-hourglass-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hourglass-1.svg');
+}
+.crtg-hourglass-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hourglass-2.svg');
+}
+.crtg-hourglass-high {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hourglass-high.svg');
+}
+.crtg-hourglass-low {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/hourglass-low.svg');
+}
+.crtg-image-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-2.svg');
+}
+.crtg-image-ai-02 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-ai-02.svg');
+}
+.crtg-image-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-ai.svg');
+}
+.crtg-image-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-check.svg');
+}
+.crtg-image-edit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-edit.svg');
+}
+.crtg-image-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-minus.svg');
+}
+.crtg-image-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-plus.svg');
+}
+.crtg-image-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image-search.svg');
+}
+.crtg-image {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/image.svg');
+}
+.crtg-inbox {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/inbox.svg');
+}
+.crtg-indent-decrease {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/indent-decrease.svg');
+}
+.crtg-indent-increase {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/indent-increase.svg');
+}
+.crtg-info {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/info.svg');
+}
+.crtg-instagram {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/instagram.svg');
+}
+.crtg-italic {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/italic.svg');
+}
+.crtg-key {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/key.svg');
+}
+.crtg-landscape {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/landscape.svg');
+}
+.crtg-laptop {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/laptop.svg');
+}
+.crtg-layers-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layers-1.svg');
+}
+.crtg-layers-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layers-2.svg');
+}
+.crtg-layout-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layout-2.svg');
+}
+.crtg-layout-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layout-3.svg');
+}
+.crtg-layout-kanban-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layout-kanban-1.svg');
+}
+.crtg-layout-kanban-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layout-kanban-2.svg');
+}
+.crtg-layout-kanban-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layout-kanban-3.svg');
+}
+.crtg-layout {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/layout.svg');
+}
+.crtg-link-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/link-2.svg');
+}
+.crtg-link {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/link.svg');
+}
+.crtg-linkedin {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/linkedin.svg');
+}
+.crtg-list-check-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/list-check-2.svg');
+}
+.crtg-list-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/list-check.svg');
+}
+.crtg-list {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/list.svg');
+}
+.crtg-loader-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/loader-2.svg');
+}
+.crtg-loader-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/loader-3.svg');
+}
+.crtg-loader {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/loader.svg');
+}
+.crtg-location {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/location.svg');
+}
+.crtg-lock-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/lock-2.svg');
+}
+.crtg-lock-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/lock-3.svg');
+}
+.crtg-lock {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/lock.svg');
+}
+.crtg-log-in-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/log-in-2.svg');
+}
+.crtg-log-in {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/log-in.svg');
+}
+.crtg-log-out {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/log-out.svg');
+}
+.crtg-mail-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mail-ai.svg');
+}
+.crtg-mail-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mail-check.svg');
+}
+.crtg-mail-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mail-minus.svg');
+}
+.crtg-mail-open {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mail-open.svg');
+}
+.crtg-mail-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mail-plus.svg');
+}
+.crtg-mail {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mail.svg');
+}
+.crtg-map-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map-2.svg');
+}
+.crtg-map-pin-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map-pin-2.svg');
+}
+.crtg-map-pin-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map-pin-check.svg');
+}
+.crtg-map-pin-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map-pin-minus.svg');
+}
+.crtg-map-pin-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map-pin-plus.svg');
+}
+.crtg-map-pin {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map-pin.svg');
+}
+.crtg-map {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/map.svg');
+}
+.crtg-maximize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/maximize.svg');
+}
+.crtg-meh {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/meh.svg');
+}
+.crtg-menu-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-2.svg');
+}
+.crtg-menu-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-3.svg');
+}
+.crtg-menu-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-4.svg');
+}
+.crtg-menu-5 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-5.svg');
+}
+.crtg-menu-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-ai.svg');
+}
+.crtg-menu-search-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-search-2.svg');
+}
+.crtg-menu-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu-search.svg');
+}
+.crtg-menu {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/menu.svg');
+}
+.crtg-message-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/message-1.svg');
+}
+.crtg-message-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/message-2.svg');
+}
+.crtg-mic-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mic-2.svg');
+}
+.crtg-mic-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mic-off.svg');
+}
+.crtg-mic {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mic.svg');
+}
+.crtg-minimize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/minimize.svg');
+}
+.crtg-minus-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/minus-circle.svg');
+}
+.crtg-minus-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/minus-square.svg');
+}
+.crtg-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/minus.svg');
+}
+.crtg-monitor-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/monitor-ai.svg');
+}
+.crtg-monitor {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/monitor.svg');
+}
+.crtg-moon-stars {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/moon-stars.svg');
+}
+.crtg-moon {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/moon.svg');
+}
+.crtg-more-horizontal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/more-horizontal.svg');
+}
+.crtg-more-vertical {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/more-vertical.svg');
+}
+.crtg-mouse-pointer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mouse-pointer.svg');
+}
+.crtg-move {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/move.svg');
+}
+.crtg-movie {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/movie.svg');
+}
+.crtg-mug {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/mug.svg');
+}
+.crtg-music-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/music-2.svg');
+}
+.crtg-music-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/music-ai.svg');
+}
+.crtg-music {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/music.svg');
+}
+.crtg-navigation {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/navigation.svg');
+}
+.crtg-no-money {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/no-money.svg');
+}
+.crtg-note1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/note1.svg');
+}
+.crtg-note2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/note2.svg');
+}
+.crtg-note3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/note3.svg');
+}
+.crtg-note4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/note4.svg');
+}
+.crtg-notes {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/notes.svg');
+}
+.crtg-notpad {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/notpad.svg');
+}
+.crtg-octagon {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/octagon.svg');
+}
+.crtg-package {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/package.svg');
+}
+.crtg-paint {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/paint.svg');
+}
+.crtg-paperclip-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/paperclip-2.svg');
+}
+.crtg-paperclip {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/paperclip.svg');
+}
+.crtg-parentheses {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/parentheses.svg');
+}
+.crtg-pause-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pause-circle.svg');
+}
+.crtg-pause-square-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pause-square-2.svg');
+}
+.crtg-pause-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pause-square.svg');
+}
+.crtg-pause {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pause.svg');
+}
+.crtg-paypal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/paypal.svg');
+}
+.crtg-pen-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pen-2.svg');
+}
+.crtg-pen-tool-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pen-tool-2.svg');
+}
+.crtg-pen-tool {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pen-tool.svg');
+}
+.crtg-pen {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pen.svg');
+}
+.crtg-pencil-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pencil-2.svg');
+}
+.crtg-pencil-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pencil-3.svg');
+}
+.crtg-pencil-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pencil-4.svg');
+}
+.crtg-pencil-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pencil-ai.svg');
+}
+.crtg-pencil {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pencil.svg');
+}
+.crtg-pendrive {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pendrive.svg');
+}
+.crtg-pentagon {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pentagon.svg');
+}
+.crtg-percent {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/percent.svg');
+}
+.crtg-phone-call {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/phone-call.svg');
+}
+.crtg-phone-incoming {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/phone-incoming.svg');
+}
+.crtg-phone-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/phone-off.svg');
+}
+.crtg-phone-outgoing {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/phone-outgoing.svg');
+}
+.crtg-phone {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/phone.svg');
+}
+.crtg-pie-chart {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pie-chart.svg');
+}
+.crtg-play-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/play-circle.svg');
+}
+.crtg-play-square-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/play-square-2.svg');
+}
+.crtg-play-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/play-square.svg');
+}
+.crtg-play {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/play.svg');
+}
+.crtg-playlist {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/playlist.svg');
+}
+.crtg-plus-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/plus-circle.svg');
+}
+.crtg-plus-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/plus-square.svg');
+}
+.crtg-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/plus.svg');
+}
+.crtg-pocket {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/pocket.svg');
+}
+.crtg-portrait {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/portrait.svg');
+}
+.crtg-power {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/power.svg');
+}
+.crtg-printer {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/printer.svg');
+}
+.crtg-qr-code-scan {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/qr-code-scan.svg');
+}
+.crtg-qr-code {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/qr-code.svg');
+}
+.crtg-radio {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/radio.svg');
+}
+.crtg-rainbow {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rainbow.svg');
+}
+.crtg-receipt {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/receipt.svg');
+}
+.crtg-rectangle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rectangle.svg');
+}
+.crtg-refresh-ccw {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/refresh-ccw.svg');
+}
+.crtg-refresh-cw {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/refresh-cw.svg');
+}
+.crtg-report {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/report.svg');
+}
+.crtg-resize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/resize.svg');
+}
+.crtg-responsive {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/responsive.svg');
+}
+.crtg-rewind {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rewind.svg');
+}
+.crtg-rotate-ccw {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rotate-ccw.svg');
+}
+.crtg-rotate-cw {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rotate-cw.svg');
+}
+.crtg-rotate-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rotate-left.svg');
+}
+.crtg-rotate-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rotate-right.svg');
+}
+.crtg-route {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/route.svg');
+}
+.crtg-rss {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/rss.svg');
+}
+.crtg-ruler-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/ruler-2.svg');
+}
+.crtg-ruler-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/ruler-3.svg');
+}
+.crtg-ruler {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/ruler.svg');
+}
+.crtg-safari {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/safari.svg');
+}
+.crtg-save {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/save.svg');
+}
+.crtg-scan {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/scan.svg');
+}
+.crtg-school {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/school.svg');
+}
+.crtg-scissors-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/scissors-2.svg');
+}
+.crtg-scissors-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/scissors-3.svg');
+}
+.crtg-scissors-cut {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/scissors-cut.svg');
+}
+.crtg-scissors {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/scissors.svg');
+}
+.crtg-search-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/search-2.svg');
+}
+.crtg-search-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/search-3.svg');
+}
+.crtg-search-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/search-ai.svg');
+}
+.crtg-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/search.svg');
+}
+.crtg-send-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/send-1.svg');
+}
+.crtg-send-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/send-2.svg');
+}
+.crtg-server {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/server.svg');
+}
+.crtg-setting-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/setting-3.svg');
+}
+.crtg-setting-4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/setting-4.svg');
+}
+.crtg-setting-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/setting-ai.svg');
+}
+.crtg-setting {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/setting.svg');
+}
+.crtg-shapes-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shapes-2.svg');
+}
+.crtg-shapes {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shapes.svg');
+}
+.crtg-share-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/share-2.svg');
+}
+.crtg-share {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/share.svg');
+}
+.crtg-shield-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shield-off.svg');
+}
+.crtg-shield {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shield.svg');
+}
+.crtg-shining-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shining-2.svg');
+}
+.crtg-shining {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shining.svg');
+}
+.crtg-shopping-bag1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-bag1.svg');
+}
+.crtg-shopping-bag2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-bag2.svg');
+}
+.crtg-shopping-bag3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-bag3.svg');
+}
+.crtg-shopping-bag4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-bag4.svg');
+}
+.crtg-shopping-bag5 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-bag5.svg');
+}
+.crtg-shopping-basket1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-basket1.svg');
+}
+.crtg-shopping-basket2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-basket2.svg');
+}
+.crtg-shopping-cart1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-cart1.svg');
+}
+.crtg-shopping-cart2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-cart2.svg');
+}
+.crtg-shopping-cart3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-cart3.svg');
+}
+.crtg-shopping-cart4 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shopping-cart4.svg');
+}
+.crtg-shuffle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/shuffle.svg');
+}
+.crtg-skip-back {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/skip-back.svg');
+}
+.crtg-skip-forward {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/skip-forward.svg');
+}
+.crtg-slack {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/slack.svg');
+}
+.crtg-smartphone {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/smartphone.svg');
+}
+.crtg-smartwatch {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/smartwatch.svg');
+}
+.crtg-smile {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/smile.svg');
+}
+.crtg-snapchat {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/snapchat.svg');
+}
+.crtg-snooze {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/snooze.svg');
+}
+.crtg-snowflake {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/snowflake.svg');
+}
+.crtg-sort-asc {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sort-asc.svg');
+}
+.crtg-sort-desc {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sort-desc.svg');
+}
+.crtg-soundcloud {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/soundcloud.svg');
+}
+.crtg-source-code {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/source-code.svg');
+}
+.crtg-sparkles-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sparkles-2.svg');
+}
+.crtg-sparkles-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sparkles-3.svg');
+}
+.crtg-sparkles {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sparkles.svg');
+}
+.crtg-speaker {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/speaker.svg');
+}
+.crtg-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/square.svg');
+}
+.crtg-star {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/star.svg');
+}
+.crtg-stars {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/stars.svg');
+}
+.crtg-startup-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/startup-2.svg');
+}
+.crtg-startup {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/startup.svg');
+}
+.crtg-sticky-note-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sticky-note-2.svg');
+}
+.crtg-sticky-note-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sticky-note-plus.svg');
+}
+.crtg-sticky-note {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sticky-note.svg');
+}
+.crtg-stop-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/stop-circle.svg');
+}
+.crtg-stop-square-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/stop-square-2.svg');
+}
+.crtg-stop-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/stop-square.svg');
+}
+.crtg-stop {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/stop.svg');
+}
+.crtg-store-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/store-2.svg');
+}
+.crtg-store {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/store.svg');
+}
+.crtg-sun-cloud {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sun-cloud.svg');
+}
+.crtg-sun {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sun.svg');
+}
+.crtg-sunrise {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sunrise.svg');
+}
+.crtg-sunset-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sunset-2.svg');
+}
+.crtg-sunset {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/sunset.svg');
+}
+.crtg-swap-horizontal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/swap-horizontal.svg');
+}
+.crtg-swap-verticle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/swap-verticle.svg');
+}
+.crtg-table-rows {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/table-rows.svg');
+}
+.crtg-table {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/table.svg');
+}
+.crtg-tablet {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tablet.svg');
+}
+.crtg-tabs {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tabs.svg');
+}
+.crtg-tag-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tag-2.svg');
+}
+.crtg-tag {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tag.svg');
+}
+.crtg-target {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/target.svg');
+}
+.crtg-temprature-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/temprature-2.svg');
+}
+.crtg-temprature-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/temprature-3.svg');
+}
+.crtg-temprature {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/temprature.svg');
+}
+.crtg-tent-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tent-2.svg');
+}
+.crtg-tent {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tent.svg');
+}
+.crtg-terminal-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/terminal-2.svg');
+}
+.crtg-terminal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/terminal.svg');
+}
+.crtg-text-ad {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/text-ad.svg');
+}
+.crtg-text-resize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/text-resize.svg');
+}
+.crtg-text-size {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/text-size.svg');
+}
+.crtg-thumbs-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/thumbs-down.svg');
+}
+.crtg-thumbs-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/thumbs-up.svg');
+}
+.crtg-ticket-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/ticket-2.svg');
+}
+.crtg-ticket-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/ticket-3.svg');
+}
+.crtg-ticket {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/ticket.svg');
+}
+.crtg-toast {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/toast.svg');
+}
+.crtg-toggle-left {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/toggle-left.svg');
+}
+.crtg-toggle-right {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/toggle-right.svg');
+}
+.crtg-tool {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tool.svg');
+}
+.crtg-toolbar {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/toolbar.svg');
+}
+.crtg-trash-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/trash-2.svg');
+}
+.crtg-trash-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/trash-3.svg');
+}
+.crtg-trash {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/trash.svg');
+}
+.crtg-trending-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/trending-down.svg');
+}
+.crtg-trending-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/trending-up.svg');
+}
+.crtg-triangle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/triangle.svg');
+}
+.crtg-truck {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/truck.svg');
+}
+.crtg-tv {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/tv.svg');
+}
+.crtg-twitter {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/twitter.svg');
+}
+.crtg-type {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/type.svg');
+}
+.crtg-umbrella-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/umbrella-2.svg');
+}
+.crtg-umbrella {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/umbrella.svg');
+}
+.crtg-underline {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/underline.svg');
+}
+.crtg-unlock-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/unlock-2.svg');
+}
+.crtg-unlock-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/unlock-3.svg');
+}
+.crtg-unlock {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/unlock.svg');
+}
+.crtg-uno {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/uno.svg');
+}
+.crtg-upload-cloud {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/upload-cloud.svg');
+}
+.crtg-upload {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/upload.svg');
+}
+.crtg-user-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-2.svg');
+}
+.crtg-user-ai {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-ai.svg');
+}
+.crtg-user-check {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-check.svg');
+}
+.crtg-user-circle {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-circle.svg');
+}
+.crtg-user-delete {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-delete.svg');
+}
+.crtg-user-down {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-down.svg');
+}
+.crtg-user-edit {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-edit.svg');
+}
+.crtg-user-heart {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-heart.svg');
+}
+.crtg-user-location {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-location.svg');
+}
+.crtg-user-lock {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-lock.svg');
+}
+.crtg-user-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-minus.svg');
+}
+.crtg-user-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-plus.svg');
+}
+.crtg-user-receive {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-receive.svg');
+}
+.crtg-user-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-search.svg');
+}
+.crtg-user-share {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-share.svg');
+}
+.crtg-user-shield {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-shield.svg');
+}
+.crtg-user-square {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-square.svg');
+}
+.crtg-user-star {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-star.svg');
+}
+.crtg-user-up {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user-up.svg');
+}
+.crtg-user {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/user.svg');
+}
+.crtg-users-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/users-plus.svg');
+}
+.crtg-users {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/users.svg');
+}
+.crtg-vector-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/vector-2.svg');
+}
+.crtg-vector-3 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/vector-3.svg');
+}
+.crtg-vector {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/vector.svg');
+}
+.crtg-video-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-2.svg');
+}
+.crtg-video-download {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-download.svg');
+}
+.crtg-video-live {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-live.svg');
+}
+.crtg-video-minus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-minus.svg');
+}
+.crtg-video-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-off.svg');
+}
+.crtg-video-plus {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-plus.svg');
+}
+.crtg-video-upload {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video-upload.svg');
+}
+.crtg-video {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/video.svg');
+}
+.crtg-view-agenda-horizontal {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/view-agenda-horizontal.svg');
+}
+.crtg-view-agenda-vertical {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/view-agenda-vertical.svg');
+}
+.crtg-visual-search {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/visual-search.svg');
+}
+.crtg-voicemail {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/voicemail.svg');
+}
+.crtg-volume-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/volume-2.svg');
+}
+.crtg-volume-vibrate {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/volume-vibrate.svg');
+}
+.crtg-volume-x {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/volume-x.svg');
+}
+.crtg-volume {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/volume.svg');
+}
+.crtg-wallet1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wallet1.svg');
+}
+.crtg-wallet2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wallet2.svg');
+}
+.crtg-wand-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wand-2.svg');
+}
+.crtg-wand-sparkles {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wand-sparkles.svg');
+}
+.crtg-wand {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wand.svg');
+}
+.crtg-watch {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/watch.svg');
+}
+.crtg-wave {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wave.svg');
+}
+.crtg-wifi-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wifi-off.svg');
+}
+.crtg-wifi {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wifi.svg');
+}
+.crtg-wind {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/wind.svg');
+}
+.crtg-window-maximize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/window-maximize.svg');
+}
+.crtg-window-minimize {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/window-minimize.svg');
+}
+.crtg-write-1 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/write-1.svg');
+}
+.crtg-write-2 {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/write-2.svg');
+}
+.crtg-youtube {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/youtube.svg');
+}
+.crtg-zap-off {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/zap-off.svg');
+}
+.crtg-zap {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/zap.svg');
+}
+.crtg-zoom-in {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/zoom-in.svg');
+}
+.crtg-zoom-out {
+  mask-image: url('https://cdn.jsdelivr.net/gh/Danielxhm/icon@v1.0.0/icons/zoom-out.svg');
+}

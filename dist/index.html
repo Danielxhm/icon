@@ -1,0 +1,5426 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crtgicons 1.0.0</title>
+  <link rel="stylesheet" href="dist/crtgicons.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="dist/crtgicons.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--crtg-background);
+      color: var(--crtg-text-primary);
+      font-family: 'Inter', system-ui;
+      min-height: 100vh;
+      padding: 2rem;
+      transition: background 0.3s ease;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .search-container {
+      position: relative;
+      flex-grow: 1;
+      max-width: 500px;
+      margin: 0 2rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.8rem 2.5rem;
+      background: var(--crtg-surface);
+      border: 2px solid var(--crtg-text-secondary);
+      border-radius: 50px;
+      color: var(--crtg-text-primary);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--crtg-accent);
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+    }
+
+    .theme-toggle {
+      background: var(--crtg-surface);
+      border: none;
+      padding: 0.8rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+
+    .card {
+      background: var(--crtg-surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      display: grid;
+      place-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--crtg-accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .icon-container {
+      width: 100%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .icon-name {
+      color: var(--crtg-text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    .editor-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+      display: none;
+      z-index: 1000;
+    }
+
+    .editor {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--crtg-surface);
+      border-radius: 16px;
+      padding: 2rem;
+      width: min(90%, 500px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>crtgicons</h1>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar íconos..." id="searchInput">
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="grid">
+      
+      <div class="card" data-name="accessory">
+        <div class="icon-container">
+          <i class="crtg crtg-accessory" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">accessory</span>
+      </div>
+      
+      <div class="card" data-name="activity">
+        <div class="icon-container">
+          <i class="crtg crtg-activity" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">activity</span>
+      </div>
+      
+      <div class="card" data-name="adjustments-horizontal-2">
+        <div class="icon-container">
+          <i class="crtg crtg-adjustments-horizontal-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">adjustments-horizontal-2</span>
+      </div>
+      
+      <div class="card" data-name="adjustments-horizontal">
+        <div class="icon-container">
+          <i class="crtg crtg-adjustments-horizontal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">adjustments-horizontal</span>
+      </div>
+      
+      <div class="card" data-name="adjustments-vertical-2">
+        <div class="icon-container">
+          <i class="crtg crtg-adjustments-vertical-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">adjustments-vertical-2</span>
+      </div>
+      
+      <div class="card" data-name="adjustments-vertical">
+        <div class="icon-container">
+          <i class="crtg crtg-adjustments-vertical" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">adjustments-vertical</span>
+      </div>
+      
+      <div class="card" data-name="airbnb">
+        <div class="icon-container">
+          <i class="crtg crtg-airbnb" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">airbnb</span>
+      </div>
+      
+      <div class="card" data-name="airplay">
+        <div class="icon-container">
+          <i class="crtg crtg-airplay" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">airplay</span>
+      </div>
+      
+      <div class="card" data-name="alarm-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-alarm-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alarm-minus</span>
+      </div>
+      
+      <div class="card" data-name="alarm-on">
+        <div class="icon-container">
+          <i class="crtg crtg-alarm-on" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alarm-on</span>
+      </div>
+      
+      <div class="card" data-name="alarm-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-alarm-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alarm-plus</span>
+      </div>
+      
+      <div class="card" data-name="alarm">
+        <div class="icon-container">
+          <i class="crtg crtg-alarm" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alarm</span>
+      </div>
+      
+      <div class="card" data-name="alert-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-alert-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alert-circle</span>
+      </div>
+      
+      <div class="card" data-name="alert-octagon">
+        <div class="icon-container">
+          <i class="crtg crtg-alert-octagon" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alert-octagon</span>
+      </div>
+      
+      <div class="card" data-name="alert-triangle">
+        <div class="icon-container">
+          <i class="crtg crtg-alert-triangle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">alert-triangle</span>
+      </div>
+      
+      <div class="card" data-name="align-bottom">
+        <div class="icon-container">
+          <i class="crtg crtg-align-bottom" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">align-bottom</span>
+      </div>
+      
+      <div class="card" data-name="align-center">
+        <div class="icon-container">
+          <i class="crtg crtg-align-center" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">align-center</span>
+      </div>
+      
+      <div class="card" data-name="align-justify">
+        <div class="icon-container">
+          <i class="crtg crtg-align-justify" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">align-justify</span>
+      </div>
+      
+      <div class="card" data-name="align-left">
+        <div class="icon-container">
+          <i class="crtg crtg-align-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">align-left</span>
+      </div>
+      
+      <div class="card" data-name="align-right">
+        <div class="icon-container">
+          <i class="crtg crtg-align-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">align-right</span>
+      </div>
+      
+      <div class="card" data-name="align-top">
+        <div class="icon-container">
+          <i class="crtg crtg-align-top" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">align-top</span>
+      </div>
+      
+      <div class="card" data-name="anchor">
+        <div class="icon-container">
+          <i class="crtg crtg-anchor" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">anchor</span>
+      </div>
+      
+      <div class="card" data-name="android">
+        <div class="icon-container">
+          <i class="crtg crtg-android" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">android</span>
+      </div>
+      
+      <div class="card" data-name="aperture">
+        <div class="icon-container">
+          <i class="crtg crtg-aperture" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">aperture</span>
+      </div>
+      
+      <div class="card" data-name="archive">
+        <div class="icon-container">
+          <i class="crtg crtg-archive" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">archive</span>
+      </div>
+      
+      <div class="card" data-name="arrow-bar-left">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-bar-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-bar-left</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-left-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-left-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-left-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-left-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-left-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-left-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-left">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-left</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-right-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-right-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-right-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-right-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-right-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-right-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-right">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-right</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-down">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-down</span>
+      </div>
+      
+      <div class="card" data-name="arrow-left-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-left-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-left-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-left-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-left-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-left-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-left">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-left</span>
+      </div>
+      
+      <div class="card" data-name="arrow-right-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-right-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-right-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-right-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-right-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-right-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-right">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-right</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-left-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-left-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-left-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-left-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-left-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-left-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-left">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-left</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-right-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-right-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-right-circle</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-right-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-right-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-right-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up-square">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up-square</span>
+      </div>
+      
+      <div class="card" data-name="arrow-up">
+        <div class="icon-container">
+          <i class="crtg crtg-arrow-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrow-up</span>
+      </div>
+      
+      <div class="card" data-name="arrows-join">
+        <div class="icon-container">
+          <i class="crtg crtg-arrows-join" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrows-join</span>
+      </div>
+      
+      <div class="card" data-name="arrows-join2">
+        <div class="icon-container">
+          <i class="crtg crtg-arrows-join2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrows-join2</span>
+      </div>
+      
+      <div class="card" data-name="arrows-mazimize">
+        <div class="icon-container">
+          <i class="crtg crtg-arrows-mazimize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrows-mazimize</span>
+      </div>
+      
+      <div class="card" data-name="arrows-minimize">
+        <div class="icon-container">
+          <i class="crtg crtg-arrows-minimize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrows-minimize</span>
+      </div>
+      
+      <div class="card" data-name="arrows-split">
+        <div class="icon-container">
+          <i class="crtg crtg-arrows-split" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrows-split</span>
+      </div>
+      
+      <div class="card" data-name="arrows-split2">
+        <div class="icon-container">
+          <i class="crtg crtg-arrows-split2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">arrows-split2</span>
+      </div>
+      
+      <div class="card" data-name="artist">
+        <div class="icon-container">
+          <i class="crtg crtg-artist" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">artist</span>
+      </div>
+      
+      <div class="card" data-name="asana">
+        <div class="icon-container">
+          <i class="crtg crtg-asana" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">asana</span>
+      </div>
+      
+      <div class="card" data-name="at-sign">
+        <div class="icon-container">
+          <i class="crtg crtg-at-sign" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">at-sign</span>
+      </div>
+      
+      <div class="card" data-name="award-2">
+        <div class="icon-container">
+          <i class="crtg crtg-award-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">award-2</span>
+      </div>
+      
+      <div class="card" data-name="award">
+        <div class="icon-container">
+          <i class="crtg crtg-award" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">award</span>
+      </div>
+      
+      <div class="card" data-name="bank-2">
+        <div class="icon-container">
+          <i class="crtg crtg-bank-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bank-2</span>
+      </div>
+      
+      <div class="card" data-name="bank">
+        <div class="icon-container">
+          <i class="crtg crtg-bank" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bank</span>
+      </div>
+      
+      <div class="card" data-name="bar-chart-2">
+        <div class="icon-container">
+          <i class="crtg crtg-bar-chart-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bar-chart-2</span>
+      </div>
+      
+      <div class="card" data-name="bar-chart">
+        <div class="icon-container">
+          <i class="crtg crtg-bar-chart" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bar-chart</span>
+      </div>
+      
+      <div class="card" data-name="battery-2">
+        <div class="icon-container">
+          <i class="crtg crtg-battery-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">battery-2</span>
+      </div>
+      
+      <div class="card" data-name="battery-3">
+        <div class="icon-container">
+          <i class="crtg crtg-battery-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">battery-3</span>
+      </div>
+      
+      <div class="card" data-name="battery-4">
+        <div class="icon-container">
+          <i class="crtg crtg-battery-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">battery-4</span>
+      </div>
+      
+      <div class="card" data-name="battery-charging">
+        <div class="icon-container">
+          <i class="crtg crtg-battery-charging" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">battery-charging</span>
+      </div>
+      
+      <div class="card" data-name="battery">
+        <div class="icon-container">
+          <i class="crtg crtg-battery" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">battery</span>
+      </div>
+      
+      <div class="card" data-name="bell-2">
+        <div class="icon-container">
+          <i class="crtg crtg-bell-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bell-2</span>
+      </div>
+      
+      <div class="card" data-name="bell-3">
+        <div class="icon-container">
+          <i class="crtg crtg-bell-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bell-3</span>
+      </div>
+      
+      <div class="card" data-name="bell-off">
+        <div class="icon-container">
+          <i class="crtg crtg-bell-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bell-off</span>
+      </div>
+      
+      <div class="card" data-name="bell">
+        <div class="icon-container">
+          <i class="crtg crtg-bell" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bell</span>
+      </div>
+      
+      <div class="card" data-name="block">
+        <div class="icon-container">
+          <i class="crtg crtg-block" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">block</span>
+      </div>
+      
+      <div class="card" data-name="bluetooth-connected">
+        <div class="icon-container">
+          <i class="crtg crtg-bluetooth-connected" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bluetooth-connected</span>
+      </div>
+      
+      <div class="card" data-name="bluetooth-off">
+        <div class="icon-container">
+          <i class="crtg crtg-bluetooth-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bluetooth-off</span>
+      </div>
+      
+      <div class="card" data-name="bluetooth">
+        <div class="icon-container">
+          <i class="crtg crtg-bluetooth" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bluetooth</span>
+      </div>
+      
+      <div class="card" data-name="bold">
+        <div class="icon-container">
+          <i class="crtg crtg-bold" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bold</span>
+      </div>
+      
+      <div class="card" data-name="book-2">
+        <div class="icon-container">
+          <i class="crtg crtg-book-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">book-2</span>
+      </div>
+      
+      <div class="card" data-name="book-open">
+        <div class="icon-container">
+          <i class="crtg crtg-book-open" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">book-open</span>
+      </div>
+      
+      <div class="card" data-name="book">
+        <div class="icon-container">
+          <i class="crtg crtg-book" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">book</span>
+      </div>
+      
+      <div class="card" data-name="bookmark-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-bookmark-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bookmark-minus</span>
+      </div>
+      
+      <div class="card" data-name="bookmark-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-bookmark-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bookmark-plus</span>
+      </div>
+      
+      <div class="card" data-name="bookmark">
+        <div class="icon-container">
+          <i class="crtg crtg-bookmark" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bookmark</span>
+      </div>
+      
+      <div class="card" data-name="bootstrap">
+        <div class="icon-container">
+          <i class="crtg crtg-bootstrap" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bootstrap</span>
+      </div>
+      
+      <div class="card" data-name="border-bottom">
+        <div class="icon-container">
+          <i class="crtg crtg-border-bottom" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-bottom</span>
+      </div>
+      
+      <div class="card" data-name="border-clear">
+        <div class="icon-container">
+          <i class="crtg crtg-border-clear" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-clear</span>
+      </div>
+      
+      <div class="card" data-name="border-horizontal">
+        <div class="icon-container">
+          <i class="crtg crtg-border-horizontal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-horizontal</span>
+      </div>
+      
+      <div class="card" data-name="border-inner">
+        <div class="icon-container">
+          <i class="crtg crtg-border-inner" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-inner</span>
+      </div>
+      
+      <div class="card" data-name="border-left">
+        <div class="icon-container">
+          <i class="crtg crtg-border-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-left</span>
+      </div>
+      
+      <div class="card" data-name="border-outer">
+        <div class="icon-container">
+          <i class="crtg crtg-border-outer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-outer</span>
+      </div>
+      
+      <div class="card" data-name="border-right">
+        <div class="icon-container">
+          <i class="crtg crtg-border-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-right</span>
+      </div>
+      
+      <div class="card" data-name="border-top">
+        <div class="icon-container">
+          <i class="crtg crtg-border-top" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-top</span>
+      </div>
+      
+      <div class="card" data-name="border-vertical">
+        <div class="icon-container">
+          <i class="crtg crtg-border-vertical" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">border-vertical</span>
+      </div>
+      
+      <div class="card" data-name="bottom-drawer">
+        <div class="icon-container">
+          <i class="crtg crtg-bottom-drawer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bottom-drawer</span>
+      </div>
+      
+      <div class="card" data-name="bottom-navigation">
+        <div class="icon-container">
+          <i class="crtg crtg-bottom-navigation" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bottom-navigation</span>
+      </div>
+      
+      <div class="card" data-name="box">
+        <div class="icon-container">
+          <i class="crtg crtg-box" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">box</span>
+      </div>
+      
+      <div class="card" data-name="braces-dots">
+        <div class="icon-container">
+          <i class="crtg crtg-braces-dots" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">braces-dots</span>
+      </div>
+      
+      <div class="card" data-name="braces-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-braces-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">braces-minus</span>
+      </div>
+      
+      <div class="card" data-name="braces-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-braces-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">braces-plus</span>
+      </div>
+      
+      <div class="card" data-name="braces-x">
+        <div class="icon-container">
+          <i class="crtg crtg-braces-x" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">braces-x</span>
+      </div>
+      
+      <div class="card" data-name="braces">
+        <div class="icon-container">
+          <i class="crtg crtg-braces" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">braces</span>
+      </div>
+      
+      <div class="card" data-name="brackets-contain">
+        <div class="icon-container">
+          <i class="crtg crtg-brackets-contain" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">brackets-contain</span>
+      </div>
+      
+      <div class="card" data-name="brackets">
+        <div class="icon-container">
+          <i class="crtg crtg-brackets" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">brackets</span>
+      </div>
+      
+      <div class="card" data-name="briefcase-1">
+        <div class="icon-container">
+          <i class="crtg crtg-briefcase-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">briefcase-1</span>
+      </div>
+      
+      <div class="card" data-name="briefcase-2">
+        <div class="icon-container">
+          <i class="crtg crtg-briefcase-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">briefcase-2</span>
+      </div>
+      
+      <div class="card" data-name="briefcase-3">
+        <div class="icon-container">
+          <i class="crtg crtg-briefcase-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">briefcase-3</span>
+      </div>
+      
+      <div class="card" data-name="briefcase-4">
+        <div class="icon-container">
+          <i class="crtg crtg-briefcase-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">briefcase-4</span>
+      </div>
+      
+      <div class="card" data-name="brush-2">
+        <div class="icon-container">
+          <i class="crtg crtg-brush-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">brush-2</span>
+      </div>
+      
+      <div class="card" data-name="brush-3">
+        <div class="icon-container">
+          <i class="crtg crtg-brush-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">brush-3</span>
+      </div>
+      
+      <div class="card" data-name="brush-4">
+        <div class="icon-container">
+          <i class="crtg crtg-brush-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">brush-4</span>
+      </div>
+      
+      <div class="card" data-name="brush">
+        <div class="icon-container">
+          <i class="crtg crtg-brush" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">brush</span>
+      </div>
+      
+      <div class="card" data-name="bug-2">
+        <div class="icon-container">
+          <i class="crtg crtg-bug-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bug-2</span>
+      </div>
+      
+      <div class="card" data-name="bug">
+        <div class="icon-container">
+          <i class="crtg crtg-bug" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bug</span>
+      </div>
+      
+      <div class="card" data-name="building-2">
+        <div class="icon-container">
+          <i class="crtg crtg-building-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">building-2</span>
+      </div>
+      
+      <div class="card" data-name="building-3">
+        <div class="icon-container">
+          <i class="crtg crtg-building-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">building-3</span>
+      </div>
+      
+      <div class="card" data-name="building-4">
+        <div class="icon-container">
+          <i class="crtg crtg-building-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">building-4</span>
+      </div>
+      
+      <div class="card" data-name="building">
+        <div class="icon-container">
+          <i class="crtg crtg-building" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">building</span>
+      </div>
+      
+      <div class="card" data-name="bulb">
+        <div class="icon-container">
+          <i class="crtg crtg-bulb" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">bulb</span>
+      </div>
+      
+      <div class="card" data-name="calculator">
+        <div class="icon-container">
+          <i class="crtg crtg-calculator" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calculator</span>
+      </div>
+      
+      <div class="card" data-name="calendar-2">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-2</span>
+      </div>
+      
+      <div class="card" data-name="calendar-check">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-check</span>
+      </div>
+      
+      <div class="card" data-name="calendar-event-1">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-event-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-event-1</span>
+      </div>
+      
+      <div class="card" data-name="calendar-event-2">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-event-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-event-2</span>
+      </div>
+      
+      <div class="card" data-name="calendar-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-minus</span>
+      </div>
+      
+      <div class="card" data-name="calendar-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-plus</span>
+      </div>
+      
+      <div class="card" data-name="calendar-search">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-search</span>
+      </div>
+      
+      <div class="card" data-name="calendar-time">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-time" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-time</span>
+      </div>
+      
+      <div class="card" data-name="calendar-view-day">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar-view-day" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar-view-day</span>
+      </div>
+      
+      <div class="card" data-name="calendar">
+        <div class="icon-container">
+          <i class="crtg crtg-calendar" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">calendar</span>
+      </div>
+      
+      <div class="card" data-name="camera-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-camera-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera-ai</span>
+      </div>
+      
+      <div class="card" data-name="camera-check-2">
+        <div class="icon-container">
+          <i class="crtg crtg-camera-check-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera-check-2</span>
+      </div>
+      
+      <div class="card" data-name="camera-check">
+        <div class="icon-container">
+          <i class="crtg crtg-camera-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera-check</span>
+      </div>
+      
+      <div class="card" data-name="camera-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-camera-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera-minus</span>
+      </div>
+      
+      <div class="card" data-name="camera-off">
+        <div class="icon-container">
+          <i class="crtg crtg-camera-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera-off</span>
+      </div>
+      
+      <div class="card" data-name="camera-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-camera-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera-plus</span>
+      </div>
+      
+      <div class="card" data-name="camera">
+        <div class="icon-container">
+          <i class="crtg crtg-camera" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">camera</span>
+      </div>
+      
+      <div class="card" data-name="car-2">
+        <div class="icon-container">
+          <i class="crtg crtg-car-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">car-2</span>
+      </div>
+      
+      <div class="card" data-name="car">
+        <div class="icon-container">
+          <i class="crtg crtg-car" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">car</span>
+      </div>
+      
+      <div class="card" data-name="cash1">
+        <div class="icon-container">
+          <i class="crtg crtg-cash1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cash1</span>
+      </div>
+      
+      <div class="card" data-name="cash2">
+        <div class="icon-container">
+          <i class="crtg crtg-cash2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cash2</span>
+      </div>
+      
+      <div class="card" data-name="cast">
+        <div class="icon-container">
+          <i class="crtg crtg-cast" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cast</span>
+      </div>
+      
+      <div class="card" data-name="chat-1">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-1</span>
+      </div>
+      
+      <div class="card" data-name="chat-2">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-2</span>
+      </div>
+      
+      <div class="card" data-name="chat-3">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-3</span>
+      </div>
+      
+      <div class="card" data-name="chat-4">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-4</span>
+      </div>
+      
+      <div class="card" data-name="chat-check-2">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-check-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-check-2</span>
+      </div>
+      
+      <div class="card" data-name="chat-check">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-check</span>
+      </div>
+      
+      <div class="card" data-name="chat-delete">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-delete" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-delete</span>
+      </div>
+      
+      <div class="card" data-name="chat-down">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-down</span>
+      </div>
+      
+      <div class="card" data-name="chat-forward">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-forward" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-forward</span>
+      </div>
+      
+      <div class="card" data-name="chat-history">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-history" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-history</span>
+      </div>
+      
+      <div class="card" data-name="chat-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-minus</span>
+      </div>
+      
+      <div class="card" data-name="chat-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-plus</span>
+      </div>
+      
+      <div class="card" data-name="chat-report">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-report" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-report</span>
+      </div>
+      
+      <div class="card" data-name="chat-smile-1">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-smile-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-smile-1</span>
+      </div>
+      
+      <div class="card" data-name="chat-smile-2">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-smile-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-smile-2</span>
+      </div>
+      
+      <div class="card" data-name="chat-up">
+        <div class="icon-container">
+          <i class="crtg crtg-chat-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chat-up</span>
+      </div>
+      
+      <div class="card" data-name="check-circle-2">
+        <div class="icon-container">
+          <i class="crtg crtg-check-circle-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">check-circle-2</span>
+      </div>
+      
+      <div class="card" data-name="check-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-check-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">check-circle</span>
+      </div>
+      
+      <div class="card" data-name="check-square">
+        <div class="icon-container">
+          <i class="crtg crtg-check-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">check-square</span>
+      </div>
+      
+      <div class="card" data-name="check">
+        <div class="icon-container">
+          <i class="crtg crtg-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">check</span>
+      </div>
+      
+      <div class="card" data-name="chevron-down-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-down-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-down-circle</span>
+      </div>
+      
+      <div class="card" data-name="chevron-down">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-down</span>
+      </div>
+      
+      <div class="card" data-name="chevron-left-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-left-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-left-circle</span>
+      </div>
+      
+      <div class="card" data-name="chevron-left">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-left</span>
+      </div>
+      
+      <div class="card" data-name="chevron-right-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-right-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-right-circle</span>
+      </div>
+      
+      <div class="card" data-name="chevron-right">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-right</span>
+      </div>
+      
+      <div class="card" data-name="chevron-up-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-up-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-up-circle</span>
+      </div>
+      
+      <div class="card" data-name="chevron-up">
+        <div class="icon-container">
+          <i class="crtg crtg-chevron-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevron-up</span>
+      </div>
+      
+      <div class="card" data-name="chevrons-down">
+        <div class="icon-container">
+          <i class="crtg crtg-chevrons-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevrons-down</span>
+      </div>
+      
+      <div class="card" data-name="chevrons-left">
+        <div class="icon-container">
+          <i class="crtg crtg-chevrons-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevrons-left</span>
+      </div>
+      
+      <div class="card" data-name="chevrons-right">
+        <div class="icon-container">
+          <i class="crtg crtg-chevrons-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevrons-right</span>
+      </div>
+      
+      <div class="card" data-name="chevrons-up">
+        <div class="icon-container">
+          <i class="crtg crtg-chevrons-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chevrons-up</span>
+      </div>
+      
+      <div class="card" data-name="chrome">
+        <div class="icon-container">
+          <i class="crtg crtg-chrome" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">chrome</span>
+      </div>
+      
+      <div class="card" data-name="circle">
+        <div class="icon-container">
+          <i class="crtg crtg-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">circle</span>
+      </div>
+      
+      <div class="card" data-name="clipboard-check">
+        <div class="icon-container">
+          <i class="crtg crtg-clipboard-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clipboard-check</span>
+      </div>
+      
+      <div class="card" data-name="clipboard-delete">
+        <div class="icon-container">
+          <i class="crtg crtg-clipboard-delete" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clipboard-delete</span>
+      </div>
+      
+      <div class="card" data-name="clipboard-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-clipboard-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clipboard-plus</span>
+      </div>
+      
+      <div class="card" data-name="clipboard-text">
+        <div class="icon-container">
+          <i class="crtg crtg-clipboard-text" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clipboard-text</span>
+      </div>
+      
+      <div class="card" data-name="clipboard-typography">
+        <div class="icon-container">
+          <i class="crtg crtg-clipboard-typography" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clipboard-typography</span>
+      </div>
+      
+      <div class="card" data-name="clipboard">
+        <div class="icon-container">
+          <i class="crtg crtg-clipboard" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clipboard</span>
+      </div>
+      
+      <div class="card" data-name="clock-check">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-check</span>
+      </div>
+      
+      <div class="card" data-name="clock-edit">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-edit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-edit</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-1">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-1</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-10">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-10" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-10</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-11">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-11" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-11</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-12">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-12" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-12</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-2">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-2</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-3">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-3</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-4">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-4</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-5">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-5" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-5</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-6">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-6" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-6</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-7">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-7" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-7</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-8">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-8" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-8</span>
+      </div>
+      
+      <div class="card" data-name="clock-hour-9">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-hour-9" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-hour-9</span>
+      </div>
+      
+      <div class="card" data-name="clock-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-minus</span>
+      </div>
+      
+      <div class="card" data-name="clock-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-plus</span>
+      </div>
+      
+      <div class="card" data-name="clock-snooze">
+        <div class="icon-container">
+          <i class="crtg crtg-clock-snooze" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">clock-snooze</span>
+      </div>
+      
+      <div class="card" data-name="close-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-close-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">close-circle</span>
+      </div>
+      
+      <div class="card" data-name="close-octagon">
+        <div class="icon-container">
+          <i class="crtg crtg-close-octagon" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">close-octagon</span>
+      </div>
+      
+      <div class="card" data-name="close-square">
+        <div class="icon-container">
+          <i class="crtg crtg-close-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">close-square</span>
+      </div>
+      
+      <div class="card" data-name="close">
+        <div class="icon-container">
+          <i class="crtg crtg-close" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">close</span>
+      </div>
+      
+      <div class="card" data-name="cloud-2">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-2</span>
+      </div>
+      
+      <div class="card" data-name="cloud-fog-2">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-fog-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-fog-2</span>
+      </div>
+      
+      <div class="card" data-name="cloud-fog">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-fog" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-fog</span>
+      </div>
+      
+      <div class="card" data-name="cloud-lightning-2">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-lightning-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-lightning-2</span>
+      </div>
+      
+      <div class="card" data-name="cloud-lightning">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-lightning" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-lightning</span>
+      </div>
+      
+      <div class="card" data-name="cloud-off">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-off</span>
+      </div>
+      
+      <div class="card" data-name="cloud-rain-2">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-rain-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-rain-2</span>
+      </div>
+      
+      <div class="card" data-name="cloud-rain-3">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-rain-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-rain-3</span>
+      </div>
+      
+      <div class="card" data-name="cloud-rain-4">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-rain-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-rain-4</span>
+      </div>
+      
+      <div class="card" data-name="cloud-rain">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-rain" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-rain</span>
+      </div>
+      
+      <div class="card" data-name="cloud-snow-2">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-snow-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-snow-2</span>
+      </div>
+      
+      <div class="card" data-name="cloud-snow">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud-snow" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud-snow</span>
+      </div>
+      
+      <div class="card" data-name="cloud">
+        <div class="icon-container">
+          <i class="crtg crtg-cloud" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cloud</span>
+      </div>
+      
+      <div class="card" data-name="code-2">
+        <div class="icon-container">
+          <i class="crtg crtg-code-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">code-2</span>
+      </div>
+      
+      <div class="card" data-name="code-box-2">
+        <div class="icon-container">
+          <i class="crtg crtg-code-box-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">code-box-2</span>
+      </div>
+      
+      <div class="card" data-name="code-box">
+        <div class="icon-container">
+          <i class="crtg crtg-code-box" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">code-box</span>
+      </div>
+      
+      <div class="card" data-name="code-circle-2">
+        <div class="icon-container">
+          <i class="crtg crtg-code-circle-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">code-circle-2</span>
+      </div>
+      
+      <div class="card" data-name="code-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-code-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">code-circle</span>
+      </div>
+      
+      <div class="card" data-name="code">
+        <div class="icon-container">
+          <i class="crtg crtg-code" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">code</span>
+      </div>
+      
+      <div class="card" data-name="codesandbox">
+        <div class="icon-container">
+          <i class="crtg crtg-codesandbox" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">codesandbox</span>
+      </div>
+      
+      <div class="card" data-name="coffee">
+        <div class="icon-container">
+          <i class="crtg crtg-coffee" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">coffee</span>
+      </div>
+      
+      <div class="card" data-name="coin-hand">
+        <div class="icon-container">
+          <i class="crtg crtg-coin-hand" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">coin-hand</span>
+      </div>
+      
+      <div class="card" data-name="coin">
+        <div class="icon-container">
+          <i class="crtg crtg-coin" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">coin</span>
+      </div>
+      
+      <div class="card" data-name="coins1">
+        <div class="icon-container">
+          <i class="crtg crtg-coins1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">coins1</span>
+      </div>
+      
+      <div class="card" data-name="coins2">
+        <div class="icon-container">
+          <i class="crtg crtg-coins2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">coins2</span>
+      </div>
+      
+      <div class="card" data-name="color-2">
+        <div class="icon-container">
+          <i class="crtg crtg-color-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">color-2</span>
+      </div>
+      
+      <div class="card" data-name="color">
+        <div class="icon-container">
+          <i class="crtg crtg-color" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">color</span>
+      </div>
+      
+      <div class="card" data-name="colordroper">
+        <div class="icon-container">
+          <i class="crtg crtg-colordroper" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">colordroper</span>
+      </div>
+      
+      <div class="card" data-name="columns">
+        <div class="icon-container">
+          <i class="crtg crtg-columns" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">columns</span>
+      </div>
+      
+      <div class="card" data-name="command">
+        <div class="icon-container">
+          <i class="crtg crtg-command" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">command</span>
+      </div>
+      
+      <div class="card" data-name="community-2">
+        <div class="icon-container">
+          <i class="crtg crtg-community-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">community-2</span>
+      </div>
+      
+      <div class="card" data-name="community">
+        <div class="icon-container">
+          <i class="crtg crtg-community" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">community</span>
+      </div>
+      
+      <div class="card" data-name="compass-2">
+        <div class="icon-container">
+          <i class="crtg crtg-compass-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">compass-2</span>
+      </div>
+      
+      <div class="card" data-name="compass-navigation">
+        <div class="icon-container">
+          <i class="crtg crtg-compass-navigation" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">compass-navigation</span>
+      </div>
+      
+      <div class="card" data-name="compass">
+        <div class="icon-container">
+          <i class="crtg crtg-compass" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">compass</span>
+      </div>
+      
+      <div class="card" data-name="copy-2">
+        <div class="icon-container">
+          <i class="crtg crtg-copy-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">copy-2</span>
+      </div>
+      
+      <div class="card" data-name="copy">
+        <div class="icon-container">
+          <i class="crtg crtg-copy" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">copy</span>
+      </div>
+      
+      <div class="card" data-name="copyright">
+        <div class="icon-container">
+          <i class="crtg crtg-copyright" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">copyright</span>
+      </div>
+      
+      <div class="card" data-name="corner-down-left">
+        <div class="icon-container">
+          <i class="crtg crtg-corner-down-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">corner-down-left</span>
+      </div>
+      
+      <div class="card" data-name="corner-left-up">
+        <div class="icon-container">
+          <i class="crtg crtg-corner-left-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">corner-left-up</span>
+      </div>
+      
+      <div class="card" data-name="corner-right-down">
+        <div class="icon-container">
+          <i class="crtg crtg-corner-right-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">corner-right-down</span>
+      </div>
+      
+      <div class="card" data-name="corner-up-right">
+        <div class="icon-container">
+          <i class="crtg crtg-corner-up-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">corner-up-right</span>
+      </div>
+      
+      <div class="card" data-name="cpu">
+        <div class="icon-container">
+          <i class="crtg crtg-cpu" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">cpu</span>
+      </div>
+      
+      <div class="card" data-name="credit-card-add">
+        <div class="icon-container">
+          <i class="crtg crtg-credit-card-add" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">credit-card-add</span>
+      </div>
+      
+      <div class="card" data-name="credit-card-edit">
+        <div class="icon-container">
+          <i class="crtg crtg-credit-card-edit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">credit-card-edit</span>
+      </div>
+      
+      <div class="card" data-name="credit-card-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-credit-card-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">credit-card-minus</span>
+      </div>
+      
+      <div class="card" data-name="credit-card1">
+        <div class="icon-container">
+          <i class="crtg crtg-credit-card1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">credit-card1</span>
+      </div>
+      
+      <div class="card" data-name="credit-card2">
+        <div class="icon-container">
+          <i class="crtg crtg-credit-card2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">credit-card2</span>
+      </div>
+      
+      <div class="card" data-name="crop">
+        <div class="icon-container">
+          <i class="crtg crtg-crop" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">crop</span>
+      </div>
+      
+      <div class="card" data-name="crosshair">
+        <div class="icon-container">
+          <i class="crtg crtg-crosshair" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">crosshair</span>
+      </div>
+      
+      <div class="card" data-name="currency-bitcoin-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-bitcoin-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-bitcoin-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-bitcoin">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-bitcoin" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-bitcoin</span>
+      </div>
+      
+      <div class="card" data-name="currency-dollar-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-dollar-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-dollar-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-dollar1">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-dollar1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-dollar1</span>
+      </div>
+      
+      <div class="card" data-name="currency-dollar2">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-dollar2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-dollar2</span>
+      </div>
+      
+      <div class="card" data-name="currency-ethereum-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-ethereum-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-ethereum-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-ethereum">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-ethereum" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-ethereum</span>
+      </div>
+      
+      <div class="card" data-name="currency-euro-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-euro-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-euro-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-euro">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-euro" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-euro</span>
+      </div>
+      
+      <div class="card" data-name="currency-franc-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-franc-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-franc-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-franc">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-franc" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-franc</span>
+      </div>
+      
+      <div class="card" data-name="currency-pound-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-pound-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-pound-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-pound">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-pound" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-pound</span>
+      </div>
+      
+      <div class="card" data-name="currency-ruble-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-ruble-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-ruble-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-ruble">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-ruble" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-ruble</span>
+      </div>
+      
+      <div class="card" data-name="currency-rupee-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-rupee-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-rupee-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-rupee">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-rupee" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-rupee</span>
+      </div>
+      
+      <div class="card" data-name="currency-yen-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-yen-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-yen-circle</span>
+      </div>
+      
+      <div class="card" data-name="currency-yen">
+        <div class="icon-container">
+          <i class="crtg crtg-currency-yen" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">currency-yen</span>
+      </div>
+      
+      <div class="card" data-name="dashboard-customize">
+        <div class="icon-container">
+          <i class="crtg crtg-dashboard-customize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">dashboard-customize</span>
+      </div>
+      
+      <div class="card" data-name="dashboard">
+        <div class="icon-container">
+          <i class="crtg crtg-dashboard" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">dashboard</span>
+      </div>
+      
+      <div class="card" data-name="data-table">
+        <div class="icon-container">
+          <i class="crtg crtg-data-table" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">data-table</span>
+      </div>
+      
+      <div class="card" data-name="database">
+        <div class="icon-container">
+          <i class="crtg crtg-database" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">database</span>
+      </div>
+      
+      <div class="card" data-name="date-range">
+        <div class="icon-container">
+          <i class="crtg crtg-date-range" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">date-range</span>
+      </div>
+      
+      <div class="card" data-name="deezer">
+        <div class="icon-container">
+          <i class="crtg crtg-deezer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">deezer</span>
+      </div>
+      
+      <div class="card" data-name="delete">
+        <div class="icon-container">
+          <i class="crtg crtg-delete" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">delete</span>
+      </div>
+      
+      <div class="card" data-name="diagnosis">
+        <div class="icon-container">
+          <i class="crtg crtg-diagnosis" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">diagnosis</span>
+      </div>
+      
+      <div class="card" data-name="direction">
+        <div class="icon-container">
+          <i class="crtg crtg-direction" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">direction</span>
+      </div>
+      
+      <div class="card" data-name="disc-2">
+        <div class="icon-container">
+          <i class="crtg crtg-disc-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">disc-2</span>
+      </div>
+      
+      <div class="card" data-name="disc">
+        <div class="icon-container">
+          <i class="crtg crtg-disc" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">disc</span>
+      </div>
+      
+      <div class="card" data-name="discount-check">
+        <div class="icon-container">
+          <i class="crtg crtg-discount-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">discount-check</span>
+      </div>
+      
+      <div class="card" data-name="discount">
+        <div class="icon-container">
+          <i class="crtg crtg-discount" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">discount</span>
+      </div>
+      
+      <div class="card" data-name="discount2">
+        <div class="icon-container">
+          <i class="crtg crtg-discount2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">discount2</span>
+      </div>
+      
+      <div class="card" data-name="distance">
+        <div class="icon-container">
+          <i class="crtg crtg-distance" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">distance</span>
+      </div>
+      
+      <div class="card" data-name="divide">
+        <div class="icon-container">
+          <i class="crtg crtg-divide" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">divide</span>
+      </div>
+      
+      <div class="card" data-name="doc-to-left">
+        <div class="icon-container">
+          <i class="crtg crtg-doc-to-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">doc-to-left</span>
+      </div>
+      
+      <div class="card" data-name="doc-to-right">
+        <div class="icon-container">
+          <i class="crtg crtg-doc-to-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">doc-to-right</span>
+      </div>
+      
+      <div class="card" data-name="download-cloud">
+        <div class="icon-container">
+          <i class="crtg crtg-download-cloud" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">download-cloud</span>
+      </div>
+      
+      <div class="card" data-name="download">
+        <div class="icon-container">
+          <i class="crtg crtg-download" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">download</span>
+      </div>
+      
+      <div class="card" data-name="droplet-2">
+        <div class="icon-container">
+          <i class="crtg crtg-droplet-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">droplet-2</span>
+      </div>
+      
+      <div class="card" data-name="droplet-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-droplet-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">droplet-minus</span>
+      </div>
+      
+      <div class="card" data-name="droplet-percent">
+        <div class="icon-container">
+          <i class="crtg crtg-droplet-percent" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">droplet-percent</span>
+      </div>
+      
+      <div class="card" data-name="droplet-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-droplet-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">droplet-plus</span>
+      </div>
+      
+      <div class="card" data-name="droplet">
+        <div class="icon-container">
+          <i class="crtg crtg-droplet" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">droplet</span>
+      </div>
+      
+      <div class="card" data-name="earbuds-2">
+        <div class="icon-container">
+          <i class="crtg crtg-earbuds-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">earbuds-2</span>
+      </div>
+      
+      <div class="card" data-name="earbuds">
+        <div class="icon-container">
+          <i class="crtg crtg-earbuds" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">earbuds</span>
+      </div>
+      
+      <div class="card" data-name="edit-2">
+        <div class="icon-container">
+          <i class="crtg crtg-edit-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">edit-2</span>
+      </div>
+      
+      <div class="card" data-name="edit">
+        <div class="icon-container">
+          <i class="crtg crtg-edit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">edit</span>
+      </div>
+      
+      <div class="card" data-name="eraser">
+        <div class="icon-container">
+          <i class="crtg crtg-eraser" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">eraser</span>
+      </div>
+      
+      <div class="card" data-name="event-note">
+        <div class="icon-container">
+          <i class="crtg crtg-event-note" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">event-note</span>
+      </div>
+      
+      <div class="card" data-name="evernote">
+        <div class="icon-container">
+          <i class="crtg crtg-evernote" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">evernote</span>
+      </div>
+      
+      <div class="card" data-name="external-link">
+        <div class="icon-container">
+          <i class="crtg crtg-external-link" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">external-link</span>
+      </div>
+      
+      <div class="card" data-name="eye-off">
+        <div class="icon-container">
+          <i class="crtg crtg-eye-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">eye-off</span>
+      </div>
+      
+      <div class="card" data-name="eye">
+        <div class="icon-container">
+          <i class="crtg crtg-eye" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">eye</span>
+      </div>
+      
+      <div class="card" data-name="facebook">
+        <div class="icon-container">
+          <i class="crtg crtg-facebook" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">facebook</span>
+      </div>
+      
+      <div class="card" data-name="factory">
+        <div class="icon-container">
+          <i class="crtg crtg-factory" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">factory</span>
+      </div>
+      
+      <div class="card" data-name="fast-forward">
+        <div class="icon-container">
+          <i class="crtg crtg-fast-forward" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">fast-forward</span>
+      </div>
+      
+      <div class="card" data-name="figma">
+        <div class="icon-container">
+          <i class="crtg crtg-figma" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">figma</span>
+      </div>
+      
+      <div class="card" data-name="file-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-file-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-ai</span>
+      </div>
+      
+      <div class="card" data-name="file-check">
+        <div class="icon-container">
+          <i class="crtg crtg-file-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-check</span>
+      </div>
+      
+      <div class="card" data-name="file-code">
+        <div class="icon-container">
+          <i class="crtg crtg-file-code" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-code</span>
+      </div>
+      
+      <div class="card" data-name="file-copy-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-copy-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-copy-2</span>
+      </div>
+      
+      <div class="card" data-name="file-copy">
+        <div class="icon-container">
+          <i class="crtg crtg-file-copy" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-copy</span>
+      </div>
+      
+      <div class="card" data-name="file-delete-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-delete-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-delete-2</span>
+      </div>
+      
+      <div class="card" data-name="file-delete">
+        <div class="icon-container">
+          <i class="crtg crtg-file-delete" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-delete</span>
+      </div>
+      
+      <div class="card" data-name="file-download">
+        <div class="icon-container">
+          <i class="crtg crtg-file-download" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-download</span>
+      </div>
+      
+      <div class="card" data-name="file-edit-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-edit-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-edit-2</span>
+      </div>
+      
+      <div class="card" data-name="file-edit">
+        <div class="icon-container">
+          <i class="crtg crtg-file-edit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-edit</span>
+      </div>
+      
+      <div class="card" data-name="file-excel">
+        <div class="icon-container">
+          <i class="crtg crtg-file-excel" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-excel</span>
+      </div>
+      
+      <div class="card" data-name="file-history">
+        <div class="icon-container">
+          <i class="crtg crtg-file-history" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-history</span>
+      </div>
+      
+      <div class="card" data-name="file-list-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-list-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-list-2</span>
+      </div>
+      
+      <div class="card" data-name="file-list">
+        <div class="icon-container">
+          <i class="crtg crtg-file-list" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-list</span>
+      </div>
+      
+      <div class="card" data-name="file-lock-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-lock-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-lock-2</span>
+      </div>
+      
+      <div class="card" data-name="file-lock">
+        <div class="icon-container">
+          <i class="crtg crtg-file-lock" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-lock</span>
+      </div>
+      
+      <div class="card" data-name="file-minus-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-minus-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-minus-2</span>
+      </div>
+      
+      <div class="card" data-name="file-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-file-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-minus</span>
+      </div>
+      
+      <div class="card" data-name="file-pdf">
+        <div class="icon-container">
+          <i class="crtg crtg-file-pdf" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-pdf</span>
+      </div>
+      
+      <div class="card" data-name="file-plus-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-plus-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-plus-2</span>
+      </div>
+      
+      <div class="card" data-name="file-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-file-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-plus</span>
+      </div>
+      
+      <div class="card" data-name="file-ppt">
+        <div class="icon-container">
+          <i class="crtg crtg-file-ppt" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-ppt</span>
+      </div>
+      
+      <div class="card" data-name="file-search-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-search-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-search-2</span>
+      </div>
+      
+      <div class="card" data-name="file-search">
+        <div class="icon-container">
+          <i class="crtg crtg-file-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-search</span>
+      </div>
+      
+      <div class="card" data-name="file-shield-2">
+        <div class="icon-container">
+          <i class="crtg crtg-file-shield-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-shield-2</span>
+      </div>
+      
+      <div class="card" data-name="file-shield">
+        <div class="icon-container">
+          <i class="crtg crtg-file-shield" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-shield</span>
+      </div>
+      
+      <div class="card" data-name="file-text">
+        <div class="icon-container">
+          <i class="crtg crtg-file-text" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-text</span>
+      </div>
+      
+      <div class="card" data-name="file-transfer">
+        <div class="icon-container">
+          <i class="crtg crtg-file-transfer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-transfer</span>
+      </div>
+      
+      <div class="card" data-name="file-upload">
+        <div class="icon-container">
+          <i class="crtg crtg-file-upload" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-upload</span>
+      </div>
+      
+      <div class="card" data-name="file-word">
+        <div class="icon-container">
+          <i class="crtg crtg-file-word" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file-word</span>
+      </div>
+      
+      <div class="card" data-name="file">
+        <div class="icon-container">
+          <i class="crtg crtg-file" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">file</span>
+      </div>
+      
+      <div class="card" data-name="film-2">
+        <div class="icon-container">
+          <i class="crtg crtg-film-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">film-2</span>
+      </div>
+      
+      <div class="card" data-name="film">
+        <div class="icon-container">
+          <i class="crtg crtg-film" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">film</span>
+      </div>
+      
+      <div class="card" data-name="filter">
+        <div class="icon-container">
+          <i class="crtg crtg-filter" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">filter</span>
+      </div>
+      
+      <div class="card" data-name="fingerprint">
+        <div class="icon-container">
+          <i class="crtg crtg-fingerprint" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">fingerprint</span>
+      </div>
+      
+      <div class="card" data-name="flag-2">
+        <div class="icon-container">
+          <i class="crtg crtg-flag-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">flag-2</span>
+      </div>
+      
+      <div class="card" data-name="flag">
+        <div class="icon-container">
+          <i class="crtg crtg-flag" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">flag</span>
+      </div>
+      
+      <div class="card" data-name="flow">
+        <div class="icon-container">
+          <i class="crtg crtg-flow" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">flow</span>
+      </div>
+      
+      <div class="card" data-name="folder-2">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-2</span>
+      </div>
+      
+      <div class="card" data-name="folder-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-ai</span>
+      </div>
+      
+      <div class="card" data-name="folder-check">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-check</span>
+      </div>
+      
+      <div class="card" data-name="folder-copy">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-copy" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-copy</span>
+      </div>
+      
+      <div class="card" data-name="folder-download">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-download" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-download</span>
+      </div>
+      
+      <div class="card" data-name="folder-lock-2">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-lock-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-lock-2</span>
+      </div>
+      
+      <div class="card" data-name="folder-lock">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-lock" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-lock</span>
+      </div>
+      
+      <div class="card" data-name="folder-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-minus</span>
+      </div>
+      
+      <div class="card" data-name="folder-open">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-open" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-open</span>
+      </div>
+      
+      <div class="card" data-name="folder-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-plus</span>
+      </div>
+      
+      <div class="card" data-name="folder-shield">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-shield" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-shield</span>
+      </div>
+      
+      <div class="card" data-name="folder-transfer">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-transfer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-transfer</span>
+      </div>
+      
+      <div class="card" data-name="folder-upload">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-upload" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-upload</span>
+      </div>
+      
+      <div class="card" data-name="folder-zip">
+        <div class="icon-container">
+          <i class="crtg crtg-folder-zip" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder-zip</span>
+      </div>
+      
+      <div class="card" data-name="folder">
+        <div class="icon-container">
+          <i class="crtg crtg-folder" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">folder</span>
+      </div>
+      
+      <div class="card" data-name="format-image-left">
+        <div class="icon-container">
+          <i class="crtg crtg-format-image-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">format-image-left</span>
+      </div>
+      
+      <div class="card" data-name="format-image-right">
+        <div class="icon-container">
+          <i class="crtg crtg-format-image-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">format-image-right</span>
+      </div>
+      
+      <div class="card" data-name="forms">
+        <div class="icon-container">
+          <i class="crtg crtg-forms" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">forms</span>
+      </div>
+      
+      <div class="card" data-name="framer">
+        <div class="icon-container">
+          <i class="crtg crtg-framer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">framer</span>
+      </div>
+      
+      <div class="card" data-name="frown">
+        <div class="icon-container">
+          <i class="crtg crtg-frown" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">frown</span>
+      </div>
+      
+      <div class="card" data-name="gaming-remote">
+        <div class="icon-container">
+          <i class="crtg crtg-gaming-remote" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gaming-remote</span>
+      </div>
+      
+      <div class="card" data-name="gender-female">
+        <div class="icon-container">
+          <i class="crtg crtg-gender-female" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gender-female</span>
+      </div>
+      
+      <div class="card" data-name="gender-male">
+        <div class="icon-container">
+          <i class="crtg crtg-gender-male" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gender-male</span>
+      </div>
+      
+      <div class="card" data-name="gift-2">
+        <div class="icon-container">
+          <i class="crtg crtg-gift-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gift-2</span>
+      </div>
+      
+      <div class="card" data-name="gift-card">
+        <div class="icon-container">
+          <i class="crtg crtg-gift-card" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gift-card</span>
+      </div>
+      
+      <div class="card" data-name="gift">
+        <div class="icon-container">
+          <i class="crtg crtg-gift" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gift</span>
+      </div>
+      
+      <div class="card" data-name="git-branch">
+        <div class="icon-container">
+          <i class="crtg crtg-git-branch" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">git-branch</span>
+      </div>
+      
+      <div class="card" data-name="git-commit">
+        <div class="icon-container">
+          <i class="crtg crtg-git-commit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">git-commit</span>
+      </div>
+      
+      <div class="card" data-name="git-merge">
+        <div class="icon-container">
+          <i class="crtg crtg-git-merge" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">git-merge</span>
+      </div>
+      
+      <div class="card" data-name="git-pull-request">
+        <div class="icon-container">
+          <i class="crtg crtg-git-pull-request" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">git-pull-request</span>
+      </div>
+      
+      <div class="card" data-name="github">
+        <div class="icon-container">
+          <i class="crtg crtg-github" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">github</span>
+      </div>
+      
+      <div class="card" data-name="gitlab">
+        <div class="icon-container">
+          <i class="crtg crtg-gitlab" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">gitlab</span>
+      </div>
+      
+      <div class="card" data-name="globe">
+        <div class="icon-container">
+          <i class="crtg crtg-globe" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">globe</span>
+      </div>
+      
+      <div class="card" data-name="grid-on">
+        <div class="icon-container">
+          <i class="crtg crtg-grid-on" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">grid-on</span>
+      </div>
+      
+      <div class="card" data-name="grid">
+        <div class="icon-container">
+          <i class="crtg crtg-grid" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">grid</span>
+      </div>
+      
+      <div class="card" data-name="half-star">
+        <div class="icon-container">
+          <i class="crtg crtg-half-star" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">half-star</span>
+      </div>
+      
+      <div class="card" data-name="hard-drive">
+        <div class="icon-container">
+          <i class="crtg crtg-hard-drive" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hard-drive</span>
+      </div>
+      
+      <div class="card" data-name="hash">
+        <div class="icon-container">
+          <i class="crtg crtg-hash" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hash</span>
+      </div>
+      
+      <div class="card" data-name="headphones">
+        <div class="icon-container">
+          <i class="crtg crtg-headphones" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">headphones</span>
+      </div>
+      
+      <div class="card" data-name="headset">
+        <div class="icon-container">
+          <i class="crtg crtg-headset" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">headset</span>
+      </div>
+      
+      <div class="card" data-name="heart-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-heart-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">heart-ai</span>
+      </div>
+      
+      <div class="card" data-name="heart">
+        <div class="icon-container">
+          <i class="crtg crtg-heart" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">heart</span>
+      </div>
+      
+      <div class="card" data-name="help-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-help-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">help-circle</span>
+      </div>
+      
+      <div class="card" data-name="hexagon">
+        <div class="icon-container">
+          <i class="crtg crtg-hexagon" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hexagon</span>
+      </div>
+      
+      <div class="card" data-name="history">
+        <div class="icon-container">
+          <i class="crtg crtg-history" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">history</span>
+      </div>
+      
+      <div class="card" data-name="hom-3">
+        <div class="icon-container">
+          <i class="crtg crtg-hom-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hom-3</span>
+      </div>
+      
+      <div class="card" data-name="home-2">
+        <div class="icon-container">
+          <i class="crtg crtg-home-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-2</span>
+      </div>
+      
+      <div class="card" data-name="home-4">
+        <div class="icon-container">
+          <i class="crtg crtg-home-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-4</span>
+      </div>
+      
+      <div class="card" data-name="home-eco">
+        <div class="icon-container">
+          <i class="crtg crtg-home-eco" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-eco</span>
+      </div>
+      
+      <div class="card" data-name="home-heart">
+        <div class="icon-container">
+          <i class="crtg crtg-home-heart" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-heart</span>
+      </div>
+      
+      <div class="card" data-name="home-location">
+        <div class="icon-container">
+          <i class="crtg crtg-home-location" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-location</span>
+      </div>
+      
+      <div class="card" data-name="home-lock">
+        <div class="icon-container">
+          <i class="crtg crtg-home-lock" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-lock</span>
+      </div>
+      
+      <div class="card" data-name="home-search">
+        <div class="icon-container">
+          <i class="crtg crtg-home-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-search</span>
+      </div>
+      
+      <div class="card" data-name="home-setting">
+        <div class="icon-container">
+          <i class="crtg crtg-home-setting" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-setting</span>
+      </div>
+      
+      <div class="card" data-name="home-shield">
+        <div class="icon-container">
+          <i class="crtg crtg-home-shield" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-shield</span>
+      </div>
+      
+      <div class="card" data-name="home-smile">
+        <div class="icon-container">
+          <i class="crtg crtg-home-smile" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-smile</span>
+      </div>
+      
+      <div class="card" data-name="home-user">
+        <div class="icon-container">
+          <i class="crtg crtg-home-user" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home-user</span>
+      </div>
+      
+      <div class="card" data-name="home">
+        <div class="icon-container">
+          <i class="crtg crtg-home" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">home</span>
+      </div>
+      
+      <div class="card" data-name="hospital">
+        <div class="icon-container">
+          <i class="crtg crtg-hospital" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hospital</span>
+      </div>
+      
+      <div class="card" data-name="hourglass-1">
+        <div class="icon-container">
+          <i class="crtg crtg-hourglass-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hourglass-1</span>
+      </div>
+      
+      <div class="card" data-name="hourglass-2">
+        <div class="icon-container">
+          <i class="crtg crtg-hourglass-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hourglass-2</span>
+      </div>
+      
+      <div class="card" data-name="hourglass-high">
+        <div class="icon-container">
+          <i class="crtg crtg-hourglass-high" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hourglass-high</span>
+      </div>
+      
+      <div class="card" data-name="hourglass-low">
+        <div class="icon-container">
+          <i class="crtg crtg-hourglass-low" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">hourglass-low</span>
+      </div>
+      
+      <div class="card" data-name="image-2">
+        <div class="icon-container">
+          <i class="crtg crtg-image-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-2</span>
+      </div>
+      
+      <div class="card" data-name="image-ai-02">
+        <div class="icon-container">
+          <i class="crtg crtg-image-ai-02" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-ai-02</span>
+      </div>
+      
+      <div class="card" data-name="image-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-image-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-ai</span>
+      </div>
+      
+      <div class="card" data-name="image-check">
+        <div class="icon-container">
+          <i class="crtg crtg-image-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-check</span>
+      </div>
+      
+      <div class="card" data-name="image-edit">
+        <div class="icon-container">
+          <i class="crtg crtg-image-edit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-edit</span>
+      </div>
+      
+      <div class="card" data-name="image-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-image-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-minus</span>
+      </div>
+      
+      <div class="card" data-name="image-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-image-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-plus</span>
+      </div>
+      
+      <div class="card" data-name="image-search">
+        <div class="icon-container">
+          <i class="crtg crtg-image-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image-search</span>
+      </div>
+      
+      <div class="card" data-name="image">
+        <div class="icon-container">
+          <i class="crtg crtg-image" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">image</span>
+      </div>
+      
+      <div class="card" data-name="inbox">
+        <div class="icon-container">
+          <i class="crtg crtg-inbox" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">inbox</span>
+      </div>
+      
+      <div class="card" data-name="indent-decrease">
+        <div class="icon-container">
+          <i class="crtg crtg-indent-decrease" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">indent-decrease</span>
+      </div>
+      
+      <div class="card" data-name="indent-increase">
+        <div class="icon-container">
+          <i class="crtg crtg-indent-increase" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">indent-increase</span>
+      </div>
+      
+      <div class="card" data-name="info">
+        <div class="icon-container">
+          <i class="crtg crtg-info" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">info</span>
+      </div>
+      
+      <div class="card" data-name="instagram">
+        <div class="icon-container">
+          <i class="crtg crtg-instagram" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">instagram</span>
+      </div>
+      
+      <div class="card" data-name="italic">
+        <div class="icon-container">
+          <i class="crtg crtg-italic" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">italic</span>
+      </div>
+      
+      <div class="card" data-name="key">
+        <div class="icon-container">
+          <i class="crtg crtg-key" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">key</span>
+      </div>
+      
+      <div class="card" data-name="landscape">
+        <div class="icon-container">
+          <i class="crtg crtg-landscape" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">landscape</span>
+      </div>
+      
+      <div class="card" data-name="laptop">
+        <div class="icon-container">
+          <i class="crtg crtg-laptop" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">laptop</span>
+      </div>
+      
+      <div class="card" data-name="layers-1">
+        <div class="icon-container">
+          <i class="crtg crtg-layers-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layers-1</span>
+      </div>
+      
+      <div class="card" data-name="layers-2">
+        <div class="icon-container">
+          <i class="crtg crtg-layers-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layers-2</span>
+      </div>
+      
+      <div class="card" data-name="layout-2">
+        <div class="icon-container">
+          <i class="crtg crtg-layout-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layout-2</span>
+      </div>
+      
+      <div class="card" data-name="layout-3">
+        <div class="icon-container">
+          <i class="crtg crtg-layout-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layout-3</span>
+      </div>
+      
+      <div class="card" data-name="layout-kanban-1">
+        <div class="icon-container">
+          <i class="crtg crtg-layout-kanban-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layout-kanban-1</span>
+      </div>
+      
+      <div class="card" data-name="layout-kanban-2">
+        <div class="icon-container">
+          <i class="crtg crtg-layout-kanban-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layout-kanban-2</span>
+      </div>
+      
+      <div class="card" data-name="layout-kanban-3">
+        <div class="icon-container">
+          <i class="crtg crtg-layout-kanban-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layout-kanban-3</span>
+      </div>
+      
+      <div class="card" data-name="layout">
+        <div class="icon-container">
+          <i class="crtg crtg-layout" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">layout</span>
+      </div>
+      
+      <div class="card" data-name="link-2">
+        <div class="icon-container">
+          <i class="crtg crtg-link-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">link-2</span>
+      </div>
+      
+      <div class="card" data-name="link">
+        <div class="icon-container">
+          <i class="crtg crtg-link" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">link</span>
+      </div>
+      
+      <div class="card" data-name="linkedin">
+        <div class="icon-container">
+          <i class="crtg crtg-linkedin" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">linkedin</span>
+      </div>
+      
+      <div class="card" data-name="list-check-2">
+        <div class="icon-container">
+          <i class="crtg crtg-list-check-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">list-check-2</span>
+      </div>
+      
+      <div class="card" data-name="list-check">
+        <div class="icon-container">
+          <i class="crtg crtg-list-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">list-check</span>
+      </div>
+      
+      <div class="card" data-name="list">
+        <div class="icon-container">
+          <i class="crtg crtg-list" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">list</span>
+      </div>
+      
+      <div class="card" data-name="loader-2">
+        <div class="icon-container">
+          <i class="crtg crtg-loader-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">loader-2</span>
+      </div>
+      
+      <div class="card" data-name="loader-3">
+        <div class="icon-container">
+          <i class="crtg crtg-loader-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">loader-3</span>
+      </div>
+      
+      <div class="card" data-name="loader">
+        <div class="icon-container">
+          <i class="crtg crtg-loader" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">loader</span>
+      </div>
+      
+      <div class="card" data-name="location">
+        <div class="icon-container">
+          <i class="crtg crtg-location" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">location</span>
+      </div>
+      
+      <div class="card" data-name="lock-2">
+        <div class="icon-container">
+          <i class="crtg crtg-lock-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">lock-2</span>
+      </div>
+      
+      <div class="card" data-name="lock-3">
+        <div class="icon-container">
+          <i class="crtg crtg-lock-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">lock-3</span>
+      </div>
+      
+      <div class="card" data-name="lock">
+        <div class="icon-container">
+          <i class="crtg crtg-lock" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">lock</span>
+      </div>
+      
+      <div class="card" data-name="log-in-2">
+        <div class="icon-container">
+          <i class="crtg crtg-log-in-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">log-in-2</span>
+      </div>
+      
+      <div class="card" data-name="log-in">
+        <div class="icon-container">
+          <i class="crtg crtg-log-in" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">log-in</span>
+      </div>
+      
+      <div class="card" data-name="log-out">
+        <div class="icon-container">
+          <i class="crtg crtg-log-out" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">log-out</span>
+      </div>
+      
+      <div class="card" data-name="mail-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-mail-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mail-ai</span>
+      </div>
+      
+      <div class="card" data-name="mail-check">
+        <div class="icon-container">
+          <i class="crtg crtg-mail-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mail-check</span>
+      </div>
+      
+      <div class="card" data-name="mail-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-mail-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mail-minus</span>
+      </div>
+      
+      <div class="card" data-name="mail-open">
+        <div class="icon-container">
+          <i class="crtg crtg-mail-open" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mail-open</span>
+      </div>
+      
+      <div class="card" data-name="mail-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-mail-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mail-plus</span>
+      </div>
+      
+      <div class="card" data-name="mail">
+        <div class="icon-container">
+          <i class="crtg crtg-mail" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mail</span>
+      </div>
+      
+      <div class="card" data-name="map-2">
+        <div class="icon-container">
+          <i class="crtg crtg-map-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map-2</span>
+      </div>
+      
+      <div class="card" data-name="map-pin-2">
+        <div class="icon-container">
+          <i class="crtg crtg-map-pin-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map-pin-2</span>
+      </div>
+      
+      <div class="card" data-name="map-pin-check">
+        <div class="icon-container">
+          <i class="crtg crtg-map-pin-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map-pin-check</span>
+      </div>
+      
+      <div class="card" data-name="map-pin-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-map-pin-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map-pin-minus</span>
+      </div>
+      
+      <div class="card" data-name="map-pin-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-map-pin-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map-pin-plus</span>
+      </div>
+      
+      <div class="card" data-name="map-pin">
+        <div class="icon-container">
+          <i class="crtg crtg-map-pin" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map-pin</span>
+      </div>
+      
+      <div class="card" data-name="map">
+        <div class="icon-container">
+          <i class="crtg crtg-map" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">map</span>
+      </div>
+      
+      <div class="card" data-name="maximize">
+        <div class="icon-container">
+          <i class="crtg crtg-maximize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">maximize</span>
+      </div>
+      
+      <div class="card" data-name="meh">
+        <div class="icon-container">
+          <i class="crtg crtg-meh" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">meh</span>
+      </div>
+      
+      <div class="card" data-name="menu-2">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-2</span>
+      </div>
+      
+      <div class="card" data-name="menu-3">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-3</span>
+      </div>
+      
+      <div class="card" data-name="menu-4">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-4</span>
+      </div>
+      
+      <div class="card" data-name="menu-5">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-5" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-5</span>
+      </div>
+      
+      <div class="card" data-name="menu-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-ai</span>
+      </div>
+      
+      <div class="card" data-name="menu-search-2">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-search-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-search-2</span>
+      </div>
+      
+      <div class="card" data-name="menu-search">
+        <div class="icon-container">
+          <i class="crtg crtg-menu-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu-search</span>
+      </div>
+      
+      <div class="card" data-name="menu">
+        <div class="icon-container">
+          <i class="crtg crtg-menu" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">menu</span>
+      </div>
+      
+      <div class="card" data-name="message-1">
+        <div class="icon-container">
+          <i class="crtg crtg-message-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">message-1</span>
+      </div>
+      
+      <div class="card" data-name="message-2">
+        <div class="icon-container">
+          <i class="crtg crtg-message-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">message-2</span>
+      </div>
+      
+      <div class="card" data-name="mic-2">
+        <div class="icon-container">
+          <i class="crtg crtg-mic-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mic-2</span>
+      </div>
+      
+      <div class="card" data-name="mic-off">
+        <div class="icon-container">
+          <i class="crtg crtg-mic-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mic-off</span>
+      </div>
+      
+      <div class="card" data-name="mic">
+        <div class="icon-container">
+          <i class="crtg crtg-mic" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mic</span>
+      </div>
+      
+      <div class="card" data-name="minimize">
+        <div class="icon-container">
+          <i class="crtg crtg-minimize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">minimize</span>
+      </div>
+      
+      <div class="card" data-name="minus-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-minus-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">minus-circle</span>
+      </div>
+      
+      <div class="card" data-name="minus-square">
+        <div class="icon-container">
+          <i class="crtg crtg-minus-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">minus-square</span>
+      </div>
+      
+      <div class="card" data-name="minus">
+        <div class="icon-container">
+          <i class="crtg crtg-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">minus</span>
+      </div>
+      
+      <div class="card" data-name="monitor-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-monitor-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">monitor-ai</span>
+      </div>
+      
+      <div class="card" data-name="monitor">
+        <div class="icon-container">
+          <i class="crtg crtg-monitor" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">monitor</span>
+      </div>
+      
+      <div class="card" data-name="moon-stars">
+        <div class="icon-container">
+          <i class="crtg crtg-moon-stars" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">moon-stars</span>
+      </div>
+      
+      <div class="card" data-name="moon">
+        <div class="icon-container">
+          <i class="crtg crtg-moon" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">moon</span>
+      </div>
+      
+      <div class="card" data-name="more-horizontal">
+        <div class="icon-container">
+          <i class="crtg crtg-more-horizontal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">more-horizontal</span>
+      </div>
+      
+      <div class="card" data-name="more-vertical">
+        <div class="icon-container">
+          <i class="crtg crtg-more-vertical" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">more-vertical</span>
+      </div>
+      
+      <div class="card" data-name="mouse-pointer">
+        <div class="icon-container">
+          <i class="crtg crtg-mouse-pointer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mouse-pointer</span>
+      </div>
+      
+      <div class="card" data-name="move">
+        <div class="icon-container">
+          <i class="crtg crtg-move" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">move</span>
+      </div>
+      
+      <div class="card" data-name="movie">
+        <div class="icon-container">
+          <i class="crtg crtg-movie" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">movie</span>
+      </div>
+      
+      <div class="card" data-name="mug">
+        <div class="icon-container">
+          <i class="crtg crtg-mug" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">mug</span>
+      </div>
+      
+      <div class="card" data-name="music-2">
+        <div class="icon-container">
+          <i class="crtg crtg-music-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">music-2</span>
+      </div>
+      
+      <div class="card" data-name="music-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-music-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">music-ai</span>
+      </div>
+      
+      <div class="card" data-name="music">
+        <div class="icon-container">
+          <i class="crtg crtg-music" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">music</span>
+      </div>
+      
+      <div class="card" data-name="navigation">
+        <div class="icon-container">
+          <i class="crtg crtg-navigation" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">navigation</span>
+      </div>
+      
+      <div class="card" data-name="no-money">
+        <div class="icon-container">
+          <i class="crtg crtg-no-money" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">no-money</span>
+      </div>
+      
+      <div class="card" data-name="note1">
+        <div class="icon-container">
+          <i class="crtg crtg-note1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">note1</span>
+      </div>
+      
+      <div class="card" data-name="note2">
+        <div class="icon-container">
+          <i class="crtg crtg-note2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">note2</span>
+      </div>
+      
+      <div class="card" data-name="note3">
+        <div class="icon-container">
+          <i class="crtg crtg-note3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">note3</span>
+      </div>
+      
+      <div class="card" data-name="note4">
+        <div class="icon-container">
+          <i class="crtg crtg-note4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">note4</span>
+      </div>
+      
+      <div class="card" data-name="notes">
+        <div class="icon-container">
+          <i class="crtg crtg-notes" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">notes</span>
+      </div>
+      
+      <div class="card" data-name="notpad">
+        <div class="icon-container">
+          <i class="crtg crtg-notpad" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">notpad</span>
+      </div>
+      
+      <div class="card" data-name="octagon">
+        <div class="icon-container">
+          <i class="crtg crtg-octagon" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">octagon</span>
+      </div>
+      
+      <div class="card" data-name="package">
+        <div class="icon-container">
+          <i class="crtg crtg-package" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">package</span>
+      </div>
+      
+      <div class="card" data-name="paint">
+        <div class="icon-container">
+          <i class="crtg crtg-paint" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">paint</span>
+      </div>
+      
+      <div class="card" data-name="paperclip-2">
+        <div class="icon-container">
+          <i class="crtg crtg-paperclip-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">paperclip-2</span>
+      </div>
+      
+      <div class="card" data-name="paperclip">
+        <div class="icon-container">
+          <i class="crtg crtg-paperclip" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">paperclip</span>
+      </div>
+      
+      <div class="card" data-name="parentheses">
+        <div class="icon-container">
+          <i class="crtg crtg-parentheses" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">parentheses</span>
+      </div>
+      
+      <div class="card" data-name="pause-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-pause-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pause-circle</span>
+      </div>
+      
+      <div class="card" data-name="pause-square-2">
+        <div class="icon-container">
+          <i class="crtg crtg-pause-square-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pause-square-2</span>
+      </div>
+      
+      <div class="card" data-name="pause-square">
+        <div class="icon-container">
+          <i class="crtg crtg-pause-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pause-square</span>
+      </div>
+      
+      <div class="card" data-name="pause">
+        <div class="icon-container">
+          <i class="crtg crtg-pause" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pause</span>
+      </div>
+      
+      <div class="card" data-name="paypal">
+        <div class="icon-container">
+          <i class="crtg crtg-paypal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">paypal</span>
+      </div>
+      
+      <div class="card" data-name="pen-2">
+        <div class="icon-container">
+          <i class="crtg crtg-pen-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pen-2</span>
+      </div>
+      
+      <div class="card" data-name="pen-tool-2">
+        <div class="icon-container">
+          <i class="crtg crtg-pen-tool-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pen-tool-2</span>
+      </div>
+      
+      <div class="card" data-name="pen-tool">
+        <div class="icon-container">
+          <i class="crtg crtg-pen-tool" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pen-tool</span>
+      </div>
+      
+      <div class="card" data-name="pen">
+        <div class="icon-container">
+          <i class="crtg crtg-pen" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pen</span>
+      </div>
+      
+      <div class="card" data-name="pencil-2">
+        <div class="icon-container">
+          <i class="crtg crtg-pencil-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pencil-2</span>
+      </div>
+      
+      <div class="card" data-name="pencil-3">
+        <div class="icon-container">
+          <i class="crtg crtg-pencil-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pencil-3</span>
+      </div>
+      
+      <div class="card" data-name="pencil-4">
+        <div class="icon-container">
+          <i class="crtg crtg-pencil-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pencil-4</span>
+      </div>
+      
+      <div class="card" data-name="pencil-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-pencil-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pencil-ai</span>
+      </div>
+      
+      <div class="card" data-name="pencil">
+        <div class="icon-container">
+          <i class="crtg crtg-pencil" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pencil</span>
+      </div>
+      
+      <div class="card" data-name="pendrive">
+        <div class="icon-container">
+          <i class="crtg crtg-pendrive" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pendrive</span>
+      </div>
+      
+      <div class="card" data-name="pentagon">
+        <div class="icon-container">
+          <i class="crtg crtg-pentagon" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pentagon</span>
+      </div>
+      
+      <div class="card" data-name="percent">
+        <div class="icon-container">
+          <i class="crtg crtg-percent" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">percent</span>
+      </div>
+      
+      <div class="card" data-name="phone-call">
+        <div class="icon-container">
+          <i class="crtg crtg-phone-call" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">phone-call</span>
+      </div>
+      
+      <div class="card" data-name="phone-incoming">
+        <div class="icon-container">
+          <i class="crtg crtg-phone-incoming" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">phone-incoming</span>
+      </div>
+      
+      <div class="card" data-name="phone-off">
+        <div class="icon-container">
+          <i class="crtg crtg-phone-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">phone-off</span>
+      </div>
+      
+      <div class="card" data-name="phone-outgoing">
+        <div class="icon-container">
+          <i class="crtg crtg-phone-outgoing" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">phone-outgoing</span>
+      </div>
+      
+      <div class="card" data-name="phone">
+        <div class="icon-container">
+          <i class="crtg crtg-phone" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">phone</span>
+      </div>
+      
+      <div class="card" data-name="pie-chart">
+        <div class="icon-container">
+          <i class="crtg crtg-pie-chart" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pie-chart</span>
+      </div>
+      
+      <div class="card" data-name="play-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-play-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">play-circle</span>
+      </div>
+      
+      <div class="card" data-name="play-square-2">
+        <div class="icon-container">
+          <i class="crtg crtg-play-square-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">play-square-2</span>
+      </div>
+      
+      <div class="card" data-name="play-square">
+        <div class="icon-container">
+          <i class="crtg crtg-play-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">play-square</span>
+      </div>
+      
+      <div class="card" data-name="play">
+        <div class="icon-container">
+          <i class="crtg crtg-play" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">play</span>
+      </div>
+      
+      <div class="card" data-name="playlist">
+        <div class="icon-container">
+          <i class="crtg crtg-playlist" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">playlist</span>
+      </div>
+      
+      <div class="card" data-name="plus-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-plus-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">plus-circle</span>
+      </div>
+      
+      <div class="card" data-name="plus-square">
+        <div class="icon-container">
+          <i class="crtg crtg-plus-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">plus-square</span>
+      </div>
+      
+      <div class="card" data-name="plus">
+        <div class="icon-container">
+          <i class="crtg crtg-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">plus</span>
+      </div>
+      
+      <div class="card" data-name="pocket">
+        <div class="icon-container">
+          <i class="crtg crtg-pocket" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">pocket</span>
+      </div>
+      
+      <div class="card" data-name="portrait">
+        <div class="icon-container">
+          <i class="crtg crtg-portrait" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">portrait</span>
+      </div>
+      
+      <div class="card" data-name="power">
+        <div class="icon-container">
+          <i class="crtg crtg-power" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">power</span>
+      </div>
+      
+      <div class="card" data-name="printer">
+        <div class="icon-container">
+          <i class="crtg crtg-printer" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">printer</span>
+      </div>
+      
+      <div class="card" data-name="qr-code-scan">
+        <div class="icon-container">
+          <i class="crtg crtg-qr-code-scan" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">qr-code-scan</span>
+      </div>
+      
+      <div class="card" data-name="qr-code">
+        <div class="icon-container">
+          <i class="crtg crtg-qr-code" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">qr-code</span>
+      </div>
+      
+      <div class="card" data-name="radio">
+        <div class="icon-container">
+          <i class="crtg crtg-radio" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">radio</span>
+      </div>
+      
+      <div class="card" data-name="rainbow">
+        <div class="icon-container">
+          <i class="crtg crtg-rainbow" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rainbow</span>
+      </div>
+      
+      <div class="card" data-name="receipt">
+        <div class="icon-container">
+          <i class="crtg crtg-receipt" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">receipt</span>
+      </div>
+      
+      <div class="card" data-name="rectangle">
+        <div class="icon-container">
+          <i class="crtg crtg-rectangle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rectangle</span>
+      </div>
+      
+      <div class="card" data-name="refresh-ccw">
+        <div class="icon-container">
+          <i class="crtg crtg-refresh-ccw" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">refresh-ccw</span>
+      </div>
+      
+      <div class="card" data-name="refresh-cw">
+        <div class="icon-container">
+          <i class="crtg crtg-refresh-cw" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">refresh-cw</span>
+      </div>
+      
+      <div class="card" data-name="report">
+        <div class="icon-container">
+          <i class="crtg crtg-report" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">report</span>
+      </div>
+      
+      <div class="card" data-name="resize">
+        <div class="icon-container">
+          <i class="crtg crtg-resize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">resize</span>
+      </div>
+      
+      <div class="card" data-name="responsive">
+        <div class="icon-container">
+          <i class="crtg crtg-responsive" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">responsive</span>
+      </div>
+      
+      <div class="card" data-name="rewind">
+        <div class="icon-container">
+          <i class="crtg crtg-rewind" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rewind</span>
+      </div>
+      
+      <div class="card" data-name="rotate-ccw">
+        <div class="icon-container">
+          <i class="crtg crtg-rotate-ccw" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rotate-ccw</span>
+      </div>
+      
+      <div class="card" data-name="rotate-cw">
+        <div class="icon-container">
+          <i class="crtg crtg-rotate-cw" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rotate-cw</span>
+      </div>
+      
+      <div class="card" data-name="rotate-left">
+        <div class="icon-container">
+          <i class="crtg crtg-rotate-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rotate-left</span>
+      </div>
+      
+      <div class="card" data-name="rotate-right">
+        <div class="icon-container">
+          <i class="crtg crtg-rotate-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rotate-right</span>
+      </div>
+      
+      <div class="card" data-name="route">
+        <div class="icon-container">
+          <i class="crtg crtg-route" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">route</span>
+      </div>
+      
+      <div class="card" data-name="rss">
+        <div class="icon-container">
+          <i class="crtg crtg-rss" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">rss</span>
+      </div>
+      
+      <div class="card" data-name="ruler-2">
+        <div class="icon-container">
+          <i class="crtg crtg-ruler-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">ruler-2</span>
+      </div>
+      
+      <div class="card" data-name="ruler-3">
+        <div class="icon-container">
+          <i class="crtg crtg-ruler-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">ruler-3</span>
+      </div>
+      
+      <div class="card" data-name="ruler">
+        <div class="icon-container">
+          <i class="crtg crtg-ruler" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">ruler</span>
+      </div>
+      
+      <div class="card" data-name="safari">
+        <div class="icon-container">
+          <i class="crtg crtg-safari" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">safari</span>
+      </div>
+      
+      <div class="card" data-name="save">
+        <div class="icon-container">
+          <i class="crtg crtg-save" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">save</span>
+      </div>
+      
+      <div class="card" data-name="scan">
+        <div class="icon-container">
+          <i class="crtg crtg-scan" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">scan</span>
+      </div>
+      
+      <div class="card" data-name="school">
+        <div class="icon-container">
+          <i class="crtg crtg-school" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">school</span>
+      </div>
+      
+      <div class="card" data-name="scissors-2">
+        <div class="icon-container">
+          <i class="crtg crtg-scissors-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">scissors-2</span>
+      </div>
+      
+      <div class="card" data-name="scissors-3">
+        <div class="icon-container">
+          <i class="crtg crtg-scissors-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">scissors-3</span>
+      </div>
+      
+      <div class="card" data-name="scissors-cut">
+        <div class="icon-container">
+          <i class="crtg crtg-scissors-cut" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">scissors-cut</span>
+      </div>
+      
+      <div class="card" data-name="scissors">
+        <div class="icon-container">
+          <i class="crtg crtg-scissors" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">scissors</span>
+      </div>
+      
+      <div class="card" data-name="search-2">
+        <div class="icon-container">
+          <i class="crtg crtg-search-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">search-2</span>
+      </div>
+      
+      <div class="card" data-name="search-3">
+        <div class="icon-container">
+          <i class="crtg crtg-search-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">search-3</span>
+      </div>
+      
+      <div class="card" data-name="search-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-search-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">search-ai</span>
+      </div>
+      
+      <div class="card" data-name="search">
+        <div class="icon-container">
+          <i class="crtg crtg-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">search</span>
+      </div>
+      
+      <div class="card" data-name="send-1">
+        <div class="icon-container">
+          <i class="crtg crtg-send-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">send-1</span>
+      </div>
+      
+      <div class="card" data-name="send-2">
+        <div class="icon-container">
+          <i class="crtg crtg-send-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">send-2</span>
+      </div>
+      
+      <div class="card" data-name="server">
+        <div class="icon-container">
+          <i class="crtg crtg-server" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">server</span>
+      </div>
+      
+      <div class="card" data-name="setting-3">
+        <div class="icon-container">
+          <i class="crtg crtg-setting-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">setting-3</span>
+      </div>
+      
+      <div class="card" data-name="setting-4">
+        <div class="icon-container">
+          <i class="crtg crtg-setting-4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">setting-4</span>
+      </div>
+      
+      <div class="card" data-name="setting-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-setting-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">setting-ai</span>
+      </div>
+      
+      <div class="card" data-name="setting">
+        <div class="icon-container">
+          <i class="crtg crtg-setting" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">setting</span>
+      </div>
+      
+      <div class="card" data-name="shapes-2">
+        <div class="icon-container">
+          <i class="crtg crtg-shapes-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shapes-2</span>
+      </div>
+      
+      <div class="card" data-name="shapes">
+        <div class="icon-container">
+          <i class="crtg crtg-shapes" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shapes</span>
+      </div>
+      
+      <div class="card" data-name="share-2">
+        <div class="icon-container">
+          <i class="crtg crtg-share-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">share-2</span>
+      </div>
+      
+      <div class="card" data-name="share">
+        <div class="icon-container">
+          <i class="crtg crtg-share" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">share</span>
+      </div>
+      
+      <div class="card" data-name="shield-off">
+        <div class="icon-container">
+          <i class="crtg crtg-shield-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shield-off</span>
+      </div>
+      
+      <div class="card" data-name="shield">
+        <div class="icon-container">
+          <i class="crtg crtg-shield" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shield</span>
+      </div>
+      
+      <div class="card" data-name="shining-2">
+        <div class="icon-container">
+          <i class="crtg crtg-shining-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shining-2</span>
+      </div>
+      
+      <div class="card" data-name="shining">
+        <div class="icon-container">
+          <i class="crtg crtg-shining" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shining</span>
+      </div>
+      
+      <div class="card" data-name="shopping-bag1">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-bag1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-bag1</span>
+      </div>
+      
+      <div class="card" data-name="shopping-bag2">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-bag2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-bag2</span>
+      </div>
+      
+      <div class="card" data-name="shopping-bag3">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-bag3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-bag3</span>
+      </div>
+      
+      <div class="card" data-name="shopping-bag4">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-bag4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-bag4</span>
+      </div>
+      
+      <div class="card" data-name="shopping-bag5">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-bag5" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-bag5</span>
+      </div>
+      
+      <div class="card" data-name="shopping-basket1">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-basket1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-basket1</span>
+      </div>
+      
+      <div class="card" data-name="shopping-basket2">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-basket2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-basket2</span>
+      </div>
+      
+      <div class="card" data-name="shopping-cart1">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-cart1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-cart1</span>
+      </div>
+      
+      <div class="card" data-name="shopping-cart2">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-cart2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-cart2</span>
+      </div>
+      
+      <div class="card" data-name="shopping-cart3">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-cart3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-cart3</span>
+      </div>
+      
+      <div class="card" data-name="shopping-cart4">
+        <div class="icon-container">
+          <i class="crtg crtg-shopping-cart4" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shopping-cart4</span>
+      </div>
+      
+      <div class="card" data-name="shuffle">
+        <div class="icon-container">
+          <i class="crtg crtg-shuffle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">shuffle</span>
+      </div>
+      
+      <div class="card" data-name="skip-back">
+        <div class="icon-container">
+          <i class="crtg crtg-skip-back" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">skip-back</span>
+      </div>
+      
+      <div class="card" data-name="skip-forward">
+        <div class="icon-container">
+          <i class="crtg crtg-skip-forward" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">skip-forward</span>
+      </div>
+      
+      <div class="card" data-name="slack">
+        <div class="icon-container">
+          <i class="crtg crtg-slack" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">slack</span>
+      </div>
+      
+      <div class="card" data-name="smartphone">
+        <div class="icon-container">
+          <i class="crtg crtg-smartphone" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">smartphone</span>
+      </div>
+      
+      <div class="card" data-name="smartwatch">
+        <div class="icon-container">
+          <i class="crtg crtg-smartwatch" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">smartwatch</span>
+      </div>
+      
+      <div class="card" data-name="smile">
+        <div class="icon-container">
+          <i class="crtg crtg-smile" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">smile</span>
+      </div>
+      
+      <div class="card" data-name="snapchat">
+        <div class="icon-container">
+          <i class="crtg crtg-snapchat" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">snapchat</span>
+      </div>
+      
+      <div class="card" data-name="snooze">
+        <div class="icon-container">
+          <i class="crtg crtg-snooze" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">snooze</span>
+      </div>
+      
+      <div class="card" data-name="snowflake">
+        <div class="icon-container">
+          <i class="crtg crtg-snowflake" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">snowflake</span>
+      </div>
+      
+      <div class="card" data-name="sort-asc">
+        <div class="icon-container">
+          <i class="crtg crtg-sort-asc" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sort-asc</span>
+      </div>
+      
+      <div class="card" data-name="sort-desc">
+        <div class="icon-container">
+          <i class="crtg crtg-sort-desc" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sort-desc</span>
+      </div>
+      
+      <div class="card" data-name="soundcloud">
+        <div class="icon-container">
+          <i class="crtg crtg-soundcloud" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">soundcloud</span>
+      </div>
+      
+      <div class="card" data-name="source-code">
+        <div class="icon-container">
+          <i class="crtg crtg-source-code" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">source-code</span>
+      </div>
+      
+      <div class="card" data-name="sparkles-2">
+        <div class="icon-container">
+          <i class="crtg crtg-sparkles-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sparkles-2</span>
+      </div>
+      
+      <div class="card" data-name="sparkles-3">
+        <div class="icon-container">
+          <i class="crtg crtg-sparkles-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sparkles-3</span>
+      </div>
+      
+      <div class="card" data-name="sparkles">
+        <div class="icon-container">
+          <i class="crtg crtg-sparkles" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sparkles</span>
+      </div>
+      
+      <div class="card" data-name="speaker">
+        <div class="icon-container">
+          <i class="crtg crtg-speaker" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">speaker</span>
+      </div>
+      
+      <div class="card" data-name="square">
+        <div class="icon-container">
+          <i class="crtg crtg-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">square</span>
+      </div>
+      
+      <div class="card" data-name="star">
+        <div class="icon-container">
+          <i class="crtg crtg-star" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">star</span>
+      </div>
+      
+      <div class="card" data-name="stars">
+        <div class="icon-container">
+          <i class="crtg crtg-stars" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">stars</span>
+      </div>
+      
+      <div class="card" data-name="startup-2">
+        <div class="icon-container">
+          <i class="crtg crtg-startup-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">startup-2</span>
+      </div>
+      
+      <div class="card" data-name="startup">
+        <div class="icon-container">
+          <i class="crtg crtg-startup" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">startup</span>
+      </div>
+      
+      <div class="card" data-name="sticky-note-2">
+        <div class="icon-container">
+          <i class="crtg crtg-sticky-note-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sticky-note-2</span>
+      </div>
+      
+      <div class="card" data-name="sticky-note-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-sticky-note-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sticky-note-plus</span>
+      </div>
+      
+      <div class="card" data-name="sticky-note">
+        <div class="icon-container">
+          <i class="crtg crtg-sticky-note" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sticky-note</span>
+      </div>
+      
+      <div class="card" data-name="stop-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-stop-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">stop-circle</span>
+      </div>
+      
+      <div class="card" data-name="stop-square-2">
+        <div class="icon-container">
+          <i class="crtg crtg-stop-square-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">stop-square-2</span>
+      </div>
+      
+      <div class="card" data-name="stop-square">
+        <div class="icon-container">
+          <i class="crtg crtg-stop-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">stop-square</span>
+      </div>
+      
+      <div class="card" data-name="stop">
+        <div class="icon-container">
+          <i class="crtg crtg-stop" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">stop</span>
+      </div>
+      
+      <div class="card" data-name="store-2">
+        <div class="icon-container">
+          <i class="crtg crtg-store-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">store-2</span>
+      </div>
+      
+      <div class="card" data-name="store">
+        <div class="icon-container">
+          <i class="crtg crtg-store" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">store</span>
+      </div>
+      
+      <div class="card" data-name="sun-cloud">
+        <div class="icon-container">
+          <i class="crtg crtg-sun-cloud" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sun-cloud</span>
+      </div>
+      
+      <div class="card" data-name="sun">
+        <div class="icon-container">
+          <i class="crtg crtg-sun" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sun</span>
+      </div>
+      
+      <div class="card" data-name="sunrise">
+        <div class="icon-container">
+          <i class="crtg crtg-sunrise" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sunrise</span>
+      </div>
+      
+      <div class="card" data-name="sunset-2">
+        <div class="icon-container">
+          <i class="crtg crtg-sunset-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sunset-2</span>
+      </div>
+      
+      <div class="card" data-name="sunset">
+        <div class="icon-container">
+          <i class="crtg crtg-sunset" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">sunset</span>
+      </div>
+      
+      <div class="card" data-name="swap-horizontal">
+        <div class="icon-container">
+          <i class="crtg crtg-swap-horizontal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">swap-horizontal</span>
+      </div>
+      
+      <div class="card" data-name="swap-verticle">
+        <div class="icon-container">
+          <i class="crtg crtg-swap-verticle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">swap-verticle</span>
+      </div>
+      
+      <div class="card" data-name="table-rows">
+        <div class="icon-container">
+          <i class="crtg crtg-table-rows" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">table-rows</span>
+      </div>
+      
+      <div class="card" data-name="table">
+        <div class="icon-container">
+          <i class="crtg crtg-table" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">table</span>
+      </div>
+      
+      <div class="card" data-name="tablet">
+        <div class="icon-container">
+          <i class="crtg crtg-tablet" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tablet</span>
+      </div>
+      
+      <div class="card" data-name="tabs">
+        <div class="icon-container">
+          <i class="crtg crtg-tabs" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tabs</span>
+      </div>
+      
+      <div class="card" data-name="tag-2">
+        <div class="icon-container">
+          <i class="crtg crtg-tag-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tag-2</span>
+      </div>
+      
+      <div class="card" data-name="tag">
+        <div class="icon-container">
+          <i class="crtg crtg-tag" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tag</span>
+      </div>
+      
+      <div class="card" data-name="target">
+        <div class="icon-container">
+          <i class="crtg crtg-target" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">target</span>
+      </div>
+      
+      <div class="card" data-name="temprature-2">
+        <div class="icon-container">
+          <i class="crtg crtg-temprature-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">temprature-2</span>
+      </div>
+      
+      <div class="card" data-name="temprature-3">
+        <div class="icon-container">
+          <i class="crtg crtg-temprature-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">temprature-3</span>
+      </div>
+      
+      <div class="card" data-name="temprature">
+        <div class="icon-container">
+          <i class="crtg crtg-temprature" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">temprature</span>
+      </div>
+      
+      <div class="card" data-name="tent-2">
+        <div class="icon-container">
+          <i class="crtg crtg-tent-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tent-2</span>
+      </div>
+      
+      <div class="card" data-name="tent">
+        <div class="icon-container">
+          <i class="crtg crtg-tent" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tent</span>
+      </div>
+      
+      <div class="card" data-name="terminal-2">
+        <div class="icon-container">
+          <i class="crtg crtg-terminal-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">terminal-2</span>
+      </div>
+      
+      <div class="card" data-name="terminal">
+        <div class="icon-container">
+          <i class="crtg crtg-terminal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">terminal</span>
+      </div>
+      
+      <div class="card" data-name="text-ad">
+        <div class="icon-container">
+          <i class="crtg crtg-text-ad" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">text-ad</span>
+      </div>
+      
+      <div class="card" data-name="text-resize">
+        <div class="icon-container">
+          <i class="crtg crtg-text-resize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">text-resize</span>
+      </div>
+      
+      <div class="card" data-name="text-size">
+        <div class="icon-container">
+          <i class="crtg crtg-text-size" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">text-size</span>
+      </div>
+      
+      <div class="card" data-name="thumbs-down">
+        <div class="icon-container">
+          <i class="crtg crtg-thumbs-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">thumbs-down</span>
+      </div>
+      
+      <div class="card" data-name="thumbs-up">
+        <div class="icon-container">
+          <i class="crtg crtg-thumbs-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">thumbs-up</span>
+      </div>
+      
+      <div class="card" data-name="ticket-2">
+        <div class="icon-container">
+          <i class="crtg crtg-ticket-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">ticket-2</span>
+      </div>
+      
+      <div class="card" data-name="ticket-3">
+        <div class="icon-container">
+          <i class="crtg crtg-ticket-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">ticket-3</span>
+      </div>
+      
+      <div class="card" data-name="ticket">
+        <div class="icon-container">
+          <i class="crtg crtg-ticket" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">ticket</span>
+      </div>
+      
+      <div class="card" data-name="toast">
+        <div class="icon-container">
+          <i class="crtg crtg-toast" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">toast</span>
+      </div>
+      
+      <div class="card" data-name="toggle-left">
+        <div class="icon-container">
+          <i class="crtg crtg-toggle-left" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">toggle-left</span>
+      </div>
+      
+      <div class="card" data-name="toggle-right">
+        <div class="icon-container">
+          <i class="crtg crtg-toggle-right" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">toggle-right</span>
+      </div>
+      
+      <div class="card" data-name="tool">
+        <div class="icon-container">
+          <i class="crtg crtg-tool" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tool</span>
+      </div>
+      
+      <div class="card" data-name="toolbar">
+        <div class="icon-container">
+          <i class="crtg crtg-toolbar" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">toolbar</span>
+      </div>
+      
+      <div class="card" data-name="trash-2">
+        <div class="icon-container">
+          <i class="crtg crtg-trash-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">trash-2</span>
+      </div>
+      
+      <div class="card" data-name="trash-3">
+        <div class="icon-container">
+          <i class="crtg crtg-trash-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">trash-3</span>
+      </div>
+      
+      <div class="card" data-name="trash">
+        <div class="icon-container">
+          <i class="crtg crtg-trash" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">trash</span>
+      </div>
+      
+      <div class="card" data-name="trending-down">
+        <div class="icon-container">
+          <i class="crtg crtg-trending-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">trending-down</span>
+      </div>
+      
+      <div class="card" data-name="trending-up">
+        <div class="icon-container">
+          <i class="crtg crtg-trending-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">trending-up</span>
+      </div>
+      
+      <div class="card" data-name="triangle">
+        <div class="icon-container">
+          <i class="crtg crtg-triangle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">triangle</span>
+      </div>
+      
+      <div class="card" data-name="truck">
+        <div class="icon-container">
+          <i class="crtg crtg-truck" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">truck</span>
+      </div>
+      
+      <div class="card" data-name="tv">
+        <div class="icon-container">
+          <i class="crtg crtg-tv" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">tv</span>
+      </div>
+      
+      <div class="card" data-name="twitter">
+        <div class="icon-container">
+          <i class="crtg crtg-twitter" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">twitter</span>
+      </div>
+      
+      <div class="card" data-name="type">
+        <div class="icon-container">
+          <i class="crtg crtg-type" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">type</span>
+      </div>
+      
+      <div class="card" data-name="umbrella-2">
+        <div class="icon-container">
+          <i class="crtg crtg-umbrella-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">umbrella-2</span>
+      </div>
+      
+      <div class="card" data-name="umbrella">
+        <div class="icon-container">
+          <i class="crtg crtg-umbrella" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">umbrella</span>
+      </div>
+      
+      <div class="card" data-name="underline">
+        <div class="icon-container">
+          <i class="crtg crtg-underline" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">underline</span>
+      </div>
+      
+      <div class="card" data-name="unlock-2">
+        <div class="icon-container">
+          <i class="crtg crtg-unlock-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">unlock-2</span>
+      </div>
+      
+      <div class="card" data-name="unlock-3">
+        <div class="icon-container">
+          <i class="crtg crtg-unlock-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">unlock-3</span>
+      </div>
+      
+      <div class="card" data-name="unlock">
+        <div class="icon-container">
+          <i class="crtg crtg-unlock" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">unlock</span>
+      </div>
+      
+      <div class="card" data-name="uno">
+        <div class="icon-container">
+          <i class="crtg crtg-uno" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">uno</span>
+      </div>
+      
+      <div class="card" data-name="upload-cloud">
+        <div class="icon-container">
+          <i class="crtg crtg-upload-cloud" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">upload-cloud</span>
+      </div>
+      
+      <div class="card" data-name="upload">
+        <div class="icon-container">
+          <i class="crtg crtg-upload" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">upload</span>
+      </div>
+      
+      <div class="card" data-name="user-2">
+        <div class="icon-container">
+          <i class="crtg crtg-user-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-2</span>
+      </div>
+      
+      <div class="card" data-name="user-ai">
+        <div class="icon-container">
+          <i class="crtg crtg-user-ai" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-ai</span>
+      </div>
+      
+      <div class="card" data-name="user-check">
+        <div class="icon-container">
+          <i class="crtg crtg-user-check" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-check</span>
+      </div>
+      
+      <div class="card" data-name="user-circle">
+        <div class="icon-container">
+          <i class="crtg crtg-user-circle" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-circle</span>
+      </div>
+      
+      <div class="card" data-name="user-delete">
+        <div class="icon-container">
+          <i class="crtg crtg-user-delete" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-delete</span>
+      </div>
+      
+      <div class="card" data-name="user-down">
+        <div class="icon-container">
+          <i class="crtg crtg-user-down" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-down</span>
+      </div>
+      
+      <div class="card" data-name="user-edit">
+        <div class="icon-container">
+          <i class="crtg crtg-user-edit" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-edit</span>
+      </div>
+      
+      <div class="card" data-name="user-heart">
+        <div class="icon-container">
+          <i class="crtg crtg-user-heart" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-heart</span>
+      </div>
+      
+      <div class="card" data-name="user-location">
+        <div class="icon-container">
+          <i class="crtg crtg-user-location" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-location</span>
+      </div>
+      
+      <div class="card" data-name="user-lock">
+        <div class="icon-container">
+          <i class="crtg crtg-user-lock" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-lock</span>
+      </div>
+      
+      <div class="card" data-name="user-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-user-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-minus</span>
+      </div>
+      
+      <div class="card" data-name="user-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-user-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-plus</span>
+      </div>
+      
+      <div class="card" data-name="user-receive">
+        <div class="icon-container">
+          <i class="crtg crtg-user-receive" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-receive</span>
+      </div>
+      
+      <div class="card" data-name="user-search">
+        <div class="icon-container">
+          <i class="crtg crtg-user-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-search</span>
+      </div>
+      
+      <div class="card" data-name="user-share">
+        <div class="icon-container">
+          <i class="crtg crtg-user-share" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-share</span>
+      </div>
+      
+      <div class="card" data-name="user-shield">
+        <div class="icon-container">
+          <i class="crtg crtg-user-shield" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-shield</span>
+      </div>
+      
+      <div class="card" data-name="user-square">
+        <div class="icon-container">
+          <i class="crtg crtg-user-square" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-square</span>
+      </div>
+      
+      <div class="card" data-name="user-star">
+        <div class="icon-container">
+          <i class="crtg crtg-user-star" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-star</span>
+      </div>
+      
+      <div class="card" data-name="user-up">
+        <div class="icon-container">
+          <i class="crtg crtg-user-up" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user-up</span>
+      </div>
+      
+      <div class="card" data-name="user">
+        <div class="icon-container">
+          <i class="crtg crtg-user" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">user</span>
+      </div>
+      
+      <div class="card" data-name="users-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-users-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">users-plus</span>
+      </div>
+      
+      <div class="card" data-name="users">
+        <div class="icon-container">
+          <i class="crtg crtg-users" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">users</span>
+      </div>
+      
+      <div class="card" data-name="vector-2">
+        <div class="icon-container">
+          <i class="crtg crtg-vector-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">vector-2</span>
+      </div>
+      
+      <div class="card" data-name="vector-3">
+        <div class="icon-container">
+          <i class="crtg crtg-vector-3" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">vector-3</span>
+      </div>
+      
+      <div class="card" data-name="vector">
+        <div class="icon-container">
+          <i class="crtg crtg-vector" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">vector</span>
+      </div>
+      
+      <div class="card" data-name="video-2">
+        <div class="icon-container">
+          <i class="crtg crtg-video-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-2</span>
+      </div>
+      
+      <div class="card" data-name="video-download">
+        <div class="icon-container">
+          <i class="crtg crtg-video-download" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-download</span>
+      </div>
+      
+      <div class="card" data-name="video-live">
+        <div class="icon-container">
+          <i class="crtg crtg-video-live" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-live</span>
+      </div>
+      
+      <div class="card" data-name="video-minus">
+        <div class="icon-container">
+          <i class="crtg crtg-video-minus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-minus</span>
+      </div>
+      
+      <div class="card" data-name="video-off">
+        <div class="icon-container">
+          <i class="crtg crtg-video-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-off</span>
+      </div>
+      
+      <div class="card" data-name="video-plus">
+        <div class="icon-container">
+          <i class="crtg crtg-video-plus" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-plus</span>
+      </div>
+      
+      <div class="card" data-name="video-upload">
+        <div class="icon-container">
+          <i class="crtg crtg-video-upload" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video-upload</span>
+      </div>
+      
+      <div class="card" data-name="video">
+        <div class="icon-container">
+          <i class="crtg crtg-video" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">video</span>
+      </div>
+      
+      <div class="card" data-name="view-agenda-horizontal">
+        <div class="icon-container">
+          <i class="crtg crtg-view-agenda-horizontal" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">view-agenda-horizontal</span>
+      </div>
+      
+      <div class="card" data-name="view-agenda-vertical">
+        <div class="icon-container">
+          <i class="crtg crtg-view-agenda-vertical" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">view-agenda-vertical</span>
+      </div>
+      
+      <div class="card" data-name="visual-search">
+        <div class="icon-container">
+          <i class="crtg crtg-visual-search" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">visual-search</span>
+      </div>
+      
+      <div class="card" data-name="voicemail">
+        <div class="icon-container">
+          <i class="crtg crtg-voicemail" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">voicemail</span>
+      </div>
+      
+      <div class="card" data-name="volume-2">
+        <div class="icon-container">
+          <i class="crtg crtg-volume-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">volume-2</span>
+      </div>
+      
+      <div class="card" data-name="volume-vibrate">
+        <div class="icon-container">
+          <i class="crtg crtg-volume-vibrate" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">volume-vibrate</span>
+      </div>
+      
+      <div class="card" data-name="volume-x">
+        <div class="icon-container">
+          <i class="crtg crtg-volume-x" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">volume-x</span>
+      </div>
+      
+      <div class="card" data-name="volume">
+        <div class="icon-container">
+          <i class="crtg crtg-volume" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">volume</span>
+      </div>
+      
+      <div class="card" data-name="wallet1">
+        <div class="icon-container">
+          <i class="crtg crtg-wallet1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wallet1</span>
+      </div>
+      
+      <div class="card" data-name="wallet2">
+        <div class="icon-container">
+          <i class="crtg crtg-wallet2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wallet2</span>
+      </div>
+      
+      <div class="card" data-name="wand-2">
+        <div class="icon-container">
+          <i class="crtg crtg-wand-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wand-2</span>
+      </div>
+      
+      <div class="card" data-name="wand-sparkles">
+        <div class="icon-container">
+          <i class="crtg crtg-wand-sparkles" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wand-sparkles</span>
+      </div>
+      
+      <div class="card" data-name="wand">
+        <div class="icon-container">
+          <i class="crtg crtg-wand" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wand</span>
+      </div>
+      
+      <div class="card" data-name="watch">
+        <div class="icon-container">
+          <i class="crtg crtg-watch" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">watch</span>
+      </div>
+      
+      <div class="card" data-name="wave">
+        <div class="icon-container">
+          <i class="crtg crtg-wave" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wave</span>
+      </div>
+      
+      <div class="card" data-name="wifi-off">
+        <div class="icon-container">
+          <i class="crtg crtg-wifi-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wifi-off</span>
+      </div>
+      
+      <div class="card" data-name="wifi">
+        <div class="icon-container">
+          <i class="crtg crtg-wifi" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wifi</span>
+      </div>
+      
+      <div class="card" data-name="wind">
+        <div class="icon-container">
+          <i class="crtg crtg-wind" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">wind</span>
+      </div>
+      
+      <div class="card" data-name="window-maximize">
+        <div class="icon-container">
+          <i class="crtg crtg-window-maximize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">window-maximize</span>
+      </div>
+      
+      <div class="card" data-name="window-minimize">
+        <div class="icon-container">
+          <i class="crtg crtg-window-minimize" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">window-minimize</span>
+      </div>
+      
+      <div class="card" data-name="write-1">
+        <div class="icon-container">
+          <i class="crtg crtg-write-1" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">write-1</span>
+      </div>
+      
+      <div class="card" data-name="write-2">
+        <div class="icon-container">
+          <i class="crtg crtg-write-2" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">write-2</span>
+      </div>
+      
+      <div class="card" data-name="youtube">
+        <div class="icon-container">
+          <i class="crtg crtg-youtube" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">youtube</span>
+      </div>
+      
+      <div class="card" data-name="zap-off">
+        <div class="icon-container">
+          <i class="crtg crtg-zap-off" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">zap-off</span>
+      </div>
+      
+      <div class="card" data-name="zap">
+        <div class="icon-container">
+          <i class="crtg crtg-zap" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">zap</span>
+      </div>
+      
+      <div class="card" data-name="zoom-in">
+        <div class="icon-container">
+          <i class="crtg crtg-zoom-in" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">zoom-in</span>
+      </div>
+      
+      <div class="card" data-name="zoom-out">
+        <div class="icon-container">
+          <i class="crtg crtg-zoom-out" style="--crtg-size-multiplier: 2"></i>
+        </div>
+        <span class="icon-name">zoom-out</span>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    // Controlador del editor
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const iconName = card.dataset.name;
+        // Lógica del editor aquí
+      });
+    });
+  </script>
+</body>
+</html>
